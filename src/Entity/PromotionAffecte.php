@@ -29,7 +29,7 @@ class PromotionAffecte
     private $idUser;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Promotion::class)
+     * @ORM\ManyToOne(targetEntity=Promotion::class, inversedBy="Utilisateur")
      * @ORM\JoinColumn(nullable=false)
      */
     private $idPromo;

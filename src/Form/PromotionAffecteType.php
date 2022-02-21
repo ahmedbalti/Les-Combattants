@@ -17,6 +17,7 @@ class PromotionAffecteType extends AbstractType
             ->add('delai', DateType::class)
             ->add('idUser', IntegerType::class)
             ->add('idPromo', IntegerType::class)
+            ->add('delai', DateType::class)
         ;
     }
 

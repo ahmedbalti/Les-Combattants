@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\PromotionRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass=PromotionRepository::class)
@@ -36,6 +38,15 @@ class Promotion
      */
     private $scoreMin;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PromotionAffecte::class, mappedBy="idPromo", orphanRemoval=true)
+     */
+    private $utilisateur;
+
+    public function __construct()
+    {
+        $this->utilisateur = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -81,6 +92,36 @@ class Promotion
     public function __toString()
     {
         return (string) $this->getId();
+    }
+
+    /**
+     * @return Collection|PromotionAffecte[]
+     */
+    public function getUtilisateur(): Collection
+    {
+        return $this->utilisateur;
+    }
+
+    public function addUtilisateur(PromotionAffecte $user): self
+    {
+        if (!$this->utilisateur->contains($user)) {
+            $this->utilisateur[] = $user;
+            $user->setIdPromo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUtilisateur(PromotionAffecte $user): self
+    {
+        if ($this->utilisateur->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getIdPromo() === $this) {
+                $user->setIdPromo(null);
+            }
+        }
+
+        return $this;
     }
 }
 
