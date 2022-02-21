@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Promotion{% endblock %}
+
+{% block content %}
+    <section id="container">
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Ajouter des promotions</h3>
+
+            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+            <div class="row mt">
+                <div class="col-md-12">
+                    <div class="content-panel">
+                        <table class="table table-striped table-advance table-hover">
+                            <div class="top-menu">
+                                <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
+                                    <li>
+
+                                        <tr>
+                                            <td><b>  {{ form_label(form.Type,"Type") }} </b> </td>
+                                            <td><b>  {{ form_errors(form.Type) }} </b> </td>
+                                            <td><b> {{ form_widget(form.Type) }}  </b> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>  {{ form_label(form.description,"Description") }} </b> </td>
+                                            <td><b>  {{ form_errors(form.description) }} </b> </td>
+                                            <td><b> {{ form_widget(form.description) }}  </b> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>  {{ form_label(form.scoreMin,"Score Minimale") }} </b> </td>
+                                            <td><b>  {{ form_errors(form.scoreMin) }} </b> </td>
+                                            <td><b> {{ form_widget(form.scoreMin) }}  </b> </td>
+                                        </tr>
+                                        <tr>
+                                            <a   {{ form_row(form.submit, { 'label': 'Ajouter Promotion' }) }} </a>
+                                        </tr>
+
+                        </table>
+
+
+
+                    </div>
+
+                    <!-- /content-panel -->
+                </div>
+                <!-- /col-md-12 -->
+            </div>
+            {{ form_end(form) }}
+            <!-- /row -->
+            </table>
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

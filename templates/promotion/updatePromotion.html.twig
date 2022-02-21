@@ -1,0 +1,25 @@
+{% extends 'block.html.twig' %}
+
+{% block content %}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <h3><i class="fa fa-angle-right"></i> Modifier des promotions</h3>
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
+                            <div>
+                                {{ form_start(form) }}
+                                {{ form_row(form.Type) }}
+                                {{ form_row(form.description) }}
+                                {{ form_row(form.scoreMin) }}
+                                {{ form_row(form.submit, {'label': 'Modifer'}) }}
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
