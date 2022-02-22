@@ -59,7 +59,7 @@ class PromotionAffecteController extends AbstractController
      * @return Response
      * @Route ("/affectePromotionList", name="showAffected")
      */
-    public function showAffectedPromotions()
+    public function showAffectedPromotions(): Response
     {
         $repositrory = $this->getDoctrine()->getRepository(PromotionAffecte::class);
         $promotionAff = $repositrory->findAll();
