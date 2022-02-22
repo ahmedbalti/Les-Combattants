@@ -36,6 +36,7 @@ class PromotionController extends AbstractController
             'promotions' => $promotion,
             ]);
     }
+
     /**
      * @Route("/addPromotion", name="addPromotion")
      */
