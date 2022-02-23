@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use App\Entity\Lieu;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +44,13 @@ class Event
      * @ORM\Column(type="integer", nullable=true)
      */
     private $lieuid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=lieu::class, inversedBy="event")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Lieu;
+
 
 
 
@@ -108,4 +118,17 @@ class Event
 
         return $this;
     }
+
+    public function getLieu(): ?Lieu
+    {
+        return $this->Lieu;
+    }
+
+    public function setLieu(?Lieu $Lieu): self
+    {
+        $this->Lieu = $Lieu;
+
+        return $this;
+    }
+
 }
