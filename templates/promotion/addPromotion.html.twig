@@ -36,6 +36,11 @@
                                             <td><b> {{ form_widget(form.scoreMin) }}  </b> </td>
                                         </tr>
                                         <tr>
+                                            <td><b>  {{ form_label(form.title,"Title") }} </b> </td>
+                                            <td><b>  {{ form_errors(form.title) }} </b> </td>
+                                            <td><b> {{ form_widget(form.title) }}  </b> </td>
+                                        </tr>
+                                        <tr>
                                             <a   {{ form_row(form.submit, { 'label': 'Ajouter Promotion' }) }} </a>
                                         </tr>
 

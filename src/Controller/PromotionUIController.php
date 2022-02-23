@@ -5,9 +5,10 @@ namespace App\Controller;
 use App\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PromotionUIControlerController extends AbstractController
+class PromotionUIController extends AbstractController
 {
     /**
      * @return Response
@@ -24,13 +25,18 @@ class PromotionUIControlerController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param $id
      * @return Response
-     * @Route ("/promotion/showDetails", name="promotionShowDetailsUI")
+     * @Route ("/promotion/showDetails/{id}", name="promotionShowDetailsUI")
      */
-    public function showPromotionDetailUI()
+    public function showPromotionDetailUI(Request $request, $id)
     {
+        $repositrory = $this->getDoctrine()->getRepository(Promotion::class);
+        $promotion = $repositrory->find($id);
         return $this->render('promotion_ui/showDetails.html.twig', [
-            'promotions' => 'hello',
+            'promotion' => $promotion,
         ]);
     }
+
 }

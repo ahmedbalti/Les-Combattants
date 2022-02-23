@@ -43,6 +43,11 @@ class Promotion
      */
     private $utilisateur;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $title;
+
     public function __construct()
     {
         $this->utilisateur = new ArrayCollection();
@@ -120,6 +125,18 @@ class Promotion
                 $user->setIdPromo(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

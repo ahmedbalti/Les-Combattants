@@ -18,8 +18,7 @@
                                         <form method="post" action="{{ path('searchPromotion') }}">
                                             <label>Search</label>
                                             <input type="text" name="search">
-                                            <input type="submit" value="Search" class="btn btn-primary" >
-
+                                            <input type="submit" value="Search" class="btn btn-primary btn-sm" >
                                         </form>
                                     </ul>
                                     <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
@@ -38,7 +37,7 @@
                                     <th class=" fa fa-edit"><i class="fa fa-question-circle"></i> Type</th>
                                     <th><i class="fa fa-bookmark"></i> Description</th>
                                     <th><i class="fa fa-bookmark"></i> Score Minimum</th>
-                                    <th><i class=" fa fa-edit"></i> Image</th>
+                                    <th><i class=" fa fa-edit"></i> Title</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -51,7 +50,7 @@
                                     <td class="hidden-phone">{{ promotion.type }}</td>
                                     <td>{{ promotion.description }} </td>
                                     <td>{{ promotion.scoreMin }} </td>
-                                    <td><span class="label label-info label-mini">Due</span></td>
+                                    <td>{{ promotion.title }}</td>
                                     <td>
                                         <a><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
                                         <a href="{{ path('updateP', {'id':promotion.id}) }}"> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>

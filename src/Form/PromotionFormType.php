@@ -29,6 +29,7 @@ class PromotionFormType extends AbstractType
             ->add('description', TextareaType::class)
             //->add('image', FileType::class)
             ->add('scoreMin', IntegerType::class)
+            ->add('title', TextType::class)
         ;
     }
 

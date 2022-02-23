@@ -34,9 +34,10 @@
                         <img src="" style="background-image: none">
                         <div class="half left-arrow d-flex align-items-center">
                             <div class="text p-4 text-center">
-                                <p class="mb-0">{{ promotion.description }} <span class="per">{{ promotion.type }}</span></p>
-                                <h3 class="mb-3"> {{ promotion.scoreMin }}</h3>
-                                <p class="pt-1"><a href="{{ path('promotionShowDetailsUI') }}" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+                                <p class="mb-0"><span class="price mr-1">{{ promotion.scoreMin }}</span> <span class="per">Score Minimum</span></p>
+                                <p class="mb-0"><span class="price mr-1">{{ promotion.type }}</span></p>
+                                <h3 class="mb-3">{{ promotion.title }}</h3>
+                                <p class="pt-1"><a href="{{ path('promotionShowDetailsUI', {'id': promotion.id}) }}" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
                             </div>
                         </div>
                     </div>

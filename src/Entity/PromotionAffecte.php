@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PromotionAffecteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PromotionAffecteRepository::class)
@@ -19,6 +20,7 @@ class PromotionAffecte
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today", message="La date doit être superieur ou egale à aujourd'hui")
      */
     private $delai;
 

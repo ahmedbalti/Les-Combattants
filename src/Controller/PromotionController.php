@@ -92,7 +92,7 @@ class PromotionController extends AbstractController
             $em->flush();
             return $this->redirectToRoute("promotionList");
         }
-        return $this->render('promotion/addPromotion.html.twig',[
+        return $this->render('promotion/updatePromotion.html.twig',[
             'form' => $form->createView()
         ]);
     }
@@ -106,7 +106,7 @@ class PromotionController extends AbstractController
     public function searchPromotion(PromotionRepository $repo, Request $request)
     {
         $data = $request->get('search');
-        $promotions = $repo->findBy(['Type' => $data]);
+        $promotions = $repo->findBy(['title' => $data]);
 
         return $this->render("promotion/index.html.twig",[
            "promotions" => $promotions
