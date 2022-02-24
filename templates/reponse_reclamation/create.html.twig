@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+ <section id="container">
+  <section id="main-content">
+   <section class="wrapper">
+    <h3><i class="fa fa-angle-right"></i> Gérer les réponses des réclamations</h3>
+
+
+    <div class="row mt">
+     <div class="col-md-12">
+      <div class="content-panel">
+       <table class="table table-striped table-advance table-hover">
+        <h4><i class="fa fa-angle-right"></i> Ajouter la réponse d'une réclamation</h4>
+        <div class="top-menu">
+         <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
+          <li>
+
+          </li>
+         </ul>
+        </div>
+        <br>
+        <hr>
+
+        <tbody>
+
+        {{ form_start (f) }}
+
+        {{ form_row(f.description)  }}
+
+
+        {{ form_end(f) }}
+
+
+
+        </tbody>
+       </table>
+      </div>
+      <!-- /content-panel -->
+     </div>
+     <!-- /col-md-12 -->
+    </div>
+    <!-- /row -->
+   </section>
+  </section>
+  <!-- /MAIN CONTENT -->
+  <!--main content end-->
+  <!--footer start-->
+  <footer class="site-footer">
+   <div class="text-center">
+    <p>
+     <strong></strong>
+    </p>
+    <div class="credits">
+
+     <a href="https://templatemag.com/"> </a>
+    </div>
+    <a href="basic_table.html#" class="go-top">
+     <i class="fa fa-angle-up"></i>
+    </a>
+   </div>
+  </footer>
+  <!--footer end-->
+ </section>
+{% endblock %}
+
+
+{#{{ form_start (f) }}#}
+
+{#{{ form_row(f.description) }}#}
+
+
+{#{{ form_end(f) }}#}
+
+

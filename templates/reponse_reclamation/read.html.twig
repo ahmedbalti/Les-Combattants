@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <h3><i class="fa fa-angle-right"></i> Gérer les réponses des réclamations</h3>
+
+
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
+                            <table class="table table-striped table-advance table-hover">
+                                <h4><i class="fa fa-angle-right"></i>Réponses Réclamations</h4>
+
+                                <hr>
+                                <thead>
+                                <tr>
+                                    <th><i class=" fa fa-edit"></i> Description</th>
+                                    <th><i class=" fa fa-edit"></i> Actions</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                {% for p in listeTableau %}
+                                    <tr>
+                                        <td>{{ p.description }} </td>
+
+
+                                        <td>
+                                            <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                            <a href="{{ path('updateR', {'id': p.id}) }} "  class="btn btn-primary btn-xs" ><i class="fa fa-pencil"></i></button></a>
+                                            <a href="{{ path('deleteR', {'id': p.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                <div class="top-menu">
+                                    <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
+                                        <li>
+                                            <a class="logout"  href="{{ path('create') }} ">Ajouter</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /content-panel -->
+                    </div>
+                    <!-- /col-md-12 -->
+                </div>
+                <!-- /row -->
+            </section>
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    <strong></strong>
+                </p>
+                <div class="credits">
+
+                    <a href="https://templatemag.com/"> </a>
+                </div>
+                <a href="basic_table.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+{% endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}#}
+
+{# {% block content %}#}
+
+{#<table border="2">#}
+{#    <tr>#}
+{#        <th>id</th>#}
+{#        <th>description</th>#}
+{#        <th>update</th>#}
+{#        <th>delete</th>#}
+{#    </tr>#}
+{#    {% for p in listeTableau %}#}
+{#    <tr>#}
+{#        <td> {{ p.id }}</td>#}
+{#        <td> {{ p.description }}</td>#}
+{#        <td><a href="{{ path('update',{'id':p.id  })}}">Update</a></td>#}
+{#        <td><a href="{{ path('delete',{'id':p.id  })}}">Supprimer</a></td>#}
+{#    </tr>#}
+{#{%endfor %}#}
+{#  {% endblock %}#}

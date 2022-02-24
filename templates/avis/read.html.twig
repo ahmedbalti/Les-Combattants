@@ -1,0 +1,81 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block content %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset('front/images/image_1.jpg') }});">
+                    </a>
+                    <div class="text mt-3">
+                        <div class="meta mb-2">
+                            <div><a href="#">Oct. 30, 2019</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                        <h3 class="heading"><a href="#">Hotel Laico Hammamet</a></h3>
+                        <p>Agréable hotel dans la zone touristique de Hammamet </p>
+                        <a href="#" class="btn btn-secondary rounded">More info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset('front/images/image_2.jpg') }});">
+                    </a>
+                    <div class="text mt-3">
+                        <div class="meta mb-2">
+                            <div><a href="#">Oct. 30, 2019</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                        <h3 class="heading"><a href="#">Hotel La Cigale Tabarka</a></h3>
+                        <p> Un des plus beaux Hotels de toute la Tunisie situé dans la région de Tabarka</p>
+                        <a href="#" class="btn btn-secondary rounded">More info</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset('front/images/image_3.jpg') }});">
+                    </a>
+                    <div class="text mt-3">
+                        <div class="meta mb-2">
+                            <div><a href="#">Oct. 30, 2019</a></div>
+                            <div><a href="#">Admin</a></div>
+                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                        </div>
+                        <h3 class="heading"><a href="#">Hotel Hasdrubal Prestige Djerba</a></h3>
+                        <p>Un merveilleux et luxueux hotel situé dans le sud tunisien exactement dans l'île des rêves Djerba</p>
+                        <a href="#" class="btn btn-secondary rounded">More info</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+<table border="0">
+    <tr>
+{#        <th>id</th>#}
+        <th>note-</th>
+        <th>date-</th>
+        <th>description</th>
+{#        <th>update</th>#}
+{#        <th>delete</th>#}
+    </tr>
+    {% for p in listeTableau %}
+        <tr>
+{#            <td> {{ p.id }}</td>#}
+            <td> {{ p.note }}</td>
+            <td> {{ 'now'|date('d-m-Y') }}</td>
+            <td> {{ p.description }}</td>
+            <td><a href="{{ path('updateR',{'id':p.id  })}}">Update</a></td>
+            <td><a href="{{ path('delete',{'id':p.id  })}}">Supprimer</a></td>
+        </tr>
+    {% endfor %}
+        </section>
+
+{% endblock %}
+
+

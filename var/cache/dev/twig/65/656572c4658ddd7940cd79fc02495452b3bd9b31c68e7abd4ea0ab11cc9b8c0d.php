@@ -90,7 +90,7 @@ class __TwigTemplate_9359dbd33750b8eb45079e7e934326de662878cad6963d1d688c60ef0cb
     <br>
     <br>
     <br>
-   
+
     <h1>Create new Reclamation</h1>
     ";
         // line 13
@@ -142,7 +142,7 @@ class __TwigTemplate_9359dbd33750b8eb45079e7e934326de662878cad6963d1d688c60ef0cb
     <br>
     <br>
     <br>
-   
+
     <h1>Create new Reclamation</h1>
     {%  form_theme form 'bootstrap_4_layout.html.twig' %}
 

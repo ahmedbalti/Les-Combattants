@@ -1,0 +1,12 @@
+{% extends 'baseFront.html.twig' %}
+{% block content %}
+{{ form_start (f) }}
+
+{{ form_row(f.note) }}
+{#{{ form_row(f.date) }}#}
+{{ form_row(f.description) }}
+
+
+{{ form_end(f) }}
+
+{% endblock %}
