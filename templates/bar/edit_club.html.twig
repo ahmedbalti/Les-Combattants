@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <h3><i class="fa fa-angle-right"></i> Gérer les restourent</h3>
+
+                <section id="main-content">
+                    <section class="wrapper">
+
+
+                        <div class="row mt">
+                            <div class="col-lg-12">
+
+                                <div>
+                                    <form role="form" class="form-horizontal style-form">
+                                        <div class="form-group has-success">
+                                            <label class="col-lg-2 control-label">Nom</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-error">
+                                            <label class="col-lg-2 control-label">Lieu</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.lieu, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Description</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-lg-2 control-label">Description</label>
+                                        <div class="col-lg-10">
+                                            {{ form_widget(form.cover) }}
+                                            <p class="help-block"></p>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        {{ form_widget(form.reset, {'attr': {'class': 'btn btn-theme04'}}) }}
+                                        {{ form_widget(form.ok, {'attr': {'class': 'btn btn-theme'}}) }}
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            <!-- /form-panel -->
+                        </div>
+                        <!-- /col-lg-12 -->
+                        </div>
+                        <!-- /row -->
+                        <!-- FORM VALIDATION -->
+
+                        <!-- /row -->
+                    </section>
+                    <!-- /wrapper -->
+                </section>
+
+            </section>
+        </section>
+        {{ form_end(form) }}
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    <strong></strong>
+                </p>
+                <div class="credits">
+                    <!--
+                      You are NOT allowed to delete the credit link to TemplateMag with free version.
+                      You can delete the credit link only if you bought the pro version.
+                      Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+                      Licensing information: https://templatemag.com/license/
+                    -->
+                    <a href="https://templatemag.com/"> </a>
+                </div>
+                <a href="basic_table.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+{% endblock %}
