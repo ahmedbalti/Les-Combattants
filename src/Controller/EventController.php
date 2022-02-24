@@ -57,15 +57,30 @@ class EventController extends AbstractController
     public function new(Request $request) {
         $event = new event();
         $form = $this->createFormBuilder($event)
+            ->add('nom', TextType::class)
+            ->add('Date', \Symfony\Component\Form\Extension\Core\Type\DateType::class, [
+                'help' => 'Entrez la date de votre evenement',
+            ])
+            ->add('type', ChoiceType::class, [
+                    'choices'  => [
+                        'Party' => "Party",
+                        'rondonné' => "rondonne",
+                        'autre' => "autre",
+                    ],]
+            )
+            ->add('Description', TextareaType::class)
+            ->add('lieuid', NumberType::class)
+
             ->add('save', SubmitType::class, array(
                     'label' => 'Créer')
             )->getForm();
 
 
+
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $article = $form->getData();
+            $event = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($event);

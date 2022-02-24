@@ -9,6 +9,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+
 
 class LieuController extends AbstractController
 {
@@ -42,6 +46,10 @@ class LieuController extends AbstractController
     public function new(Request $request) {
         $Lieu = new Lieu();
         $form = $this->createFormBuilder($Lieu)
+            ->add('nom',TextType::class)
+            ->add('ville',TextType::class)
+            ->add('adresse',TextType::class)
+            ->add('capacite',   NumberType::class)
             ->add('save', SubmitType::class, array(
                     'label' => 'Créer')
             )->getForm();
@@ -68,6 +76,7 @@ class LieuController extends AbstractController
     {
         var_dump($id);
         $Lieu = $this->getDoctrine()->getRepository(Lieu::class)->find($id);
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($Lieu);
         $em->flush();
