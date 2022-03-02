@@ -5422,22 +5422,26 @@
         <argument key="repository" type="service_closure" id="App\Repository\ReponseReclamationRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.H3co.Oc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BzV59zB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AvisController::update" type="service_closure" id=".service_locator.SMD6kcl"/>
         <argument key="App\Controller\ReclamationController::delete" type="service_closure" id=".service_locator.LT1Dmml"/>
         <argument key="App\Controller\ReclamationController::edit" type="service_closure" id=".service_locator.LT1Dmml"/>
         <argument key="App\Controller\ReclamationController::index" type="service_closure" id=".service_locator.bJ2nGqo"/>
+        <argument key="App\Controller\ReclamationController::listp" type="service_closure" id=".service_locator.bJ2nGqo"/>
         <argument key="App\Controller\ReclamationController::new" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\ReclamationController::show" type="service_closure" id=".service_locator.Yrn9bQF"/>
+        <argument key="App\Controller\ReponseReclamationController::Recherche" type="service_closure" id=".service_locator.MoV4ENj"/>
         <argument key="App\Controller\ReponseReclamationController::update" type="service_closure" id=".service_locator.MoV4ENj"/>
         <argument key="App\Controller\AvisController:update" type="service_closure" id=".service_locator.SMD6kcl"/>
         <argument key="App\Controller\ReclamationController:delete" type="service_closure" id=".service_locator.LT1Dmml"/>
         <argument key="App\Controller\ReclamationController:edit" type="service_closure" id=".service_locator.LT1Dmml"/>
         <argument key="App\Controller\ReclamationController:index" type="service_closure" id=".service_locator.bJ2nGqo"/>
+        <argument key="App\Controller\ReclamationController:listp" type="service_closure" id=".service_locator.bJ2nGqo"/>
         <argument key="App\Controller\ReclamationController:new" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\ReclamationController:show" type="service_closure" id=".service_locator.Yrn9bQF"/>
+        <argument key="App\Controller\ReponseReclamationController:Recherche" type="service_closure" id=".service_locator.MoV4ENj"/>
         <argument key="App\Controller\ReponseReclamationController:update" type="service_closure" id=".service_locator.MoV4ENj"/>
       </argument>
     </service>
@@ -6002,12 +6006,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.H3co.Oc"/>
+      <argument type="service" id=".service_locator.BzV59zB"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.H3co.Oc"/>
+      <argument type="service" id=".service_locator.BzV59zB"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6409,7 +6413,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.H3co.Oc"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.BzV59zB"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

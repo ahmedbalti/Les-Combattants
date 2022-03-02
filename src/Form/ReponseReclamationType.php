@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Reclamation;
 use App\Entity\ReponseReclamation;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -16,6 +18,8 @@ class ReponseReclamationType extends AbstractType
     {
         $builder
             ->add('description',TextareaType::class)
+            ->add('reclamation',EntityType::class,['class'=>Reclamation::class,'choice_label'=>'description'])
+
         ;
     }
 

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f680c29e-6c59-486c-a63e-415b5927a0b1" name="Changes" comment="" />
+    <list default="true" id="f680c29e-6c59-486c-a63e-415b5927a0b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/listp.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Les_Combattants.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Les_Combattants.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReponseReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReponseReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ReponseReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReponseReclamationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reponse_reclamation/read.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reponse_reclamation/read.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +160,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
     </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="258k01flUhp5AZZOynxBVTOD4EO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -160,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wamp64/www/Les-Combattants" />
+    <property name="last_opened_file_path" value="$USER_HOME$/FirstProject1" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -201,7 +223,13 @@
       <workItem from="1645566855104" duration="1978000" />
       <workItem from="1645608464202" duration="35760000" />
       <workItem from="1645691132544" duration="2192000" />
-      <workItem from="1645693573659" duration="622000" />
+      <workItem from="1645693573659" duration="2519000" />
+      <workItem from="1645894521207" duration="35000" />
+      <workItem from="1646083066901" duration="1182000" />
+      <workItem from="1646087871418" duration="1433000" />
+      <workItem from="1646090458274" duration="42000" />
+      <workItem from="1646146117173" duration="9505000" />
+      <workItem from="1646250833287" duration="8877000" />
     </task>
     <servers />
   </component>

@@ -92,6 +92,20 @@ class ReponseReclamationController extends AbstractController
     }
 
 
+    /**
+     * @Route("/recherche", name="Recherche")
+     */
+
+    public function Recherche(ReponseReclamationRepository $repository,Request $request){
+        $data=$request->get('search');
+        $Reponse=$repository->findBy(['description'=>$data]);
+        return $this->render('reponse_reclamation/read.html.twig', [
+            'listeTableau' => $Reponse,
+        ]);
+
+    }
+
+
 }
 
 

@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require 'C:\\Les_Combattants1\\vendor/autoload.php';
-require __DIR__.'/ContainerKxfGRIC/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerZhDu5xN/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';

@@ -1,0 +1,66 @@
+
+
+{% block content %}
+
+                                {#{% block body %}#}
+                                <h1 align="center" >Liste Des Réclamations </h1>
+<img src="{{ asset ('Front/images/logo.png') }}" alt="LOGO"/>
+{#    <img src="{{ asset('Front/images/logo.png') }}" width="75" alt="LOGO" style="vertical-align:bottom">#}
+
+
+
+    <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Description</th>
+                                        <th>Date du problème</th>
+                                        <th>Date Envoi</th>
+                                        <th>Type</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for reclamation in reclamations %}
+                                        <tr>
+                                            <td>{{ reclamation.id }}</td>
+                                            <td>{{ reclamation.description }}</td>
+                                            <td>{{ reclamation.date  }}</td>
+                                            <td> {{ 'now'|date('d-m-Y') }}</td>
+                                            <td>{{ reclamation.type }}</td>
+                                            <td>
+
+
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+
+                                </tbody>
+
+    </section>
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            <p>
+                <strong></strong>
+            </p>
+            <div class="credits">
+
+                <a href="https://templatemag.com/"> </a>
+            </div>
+            <a href="basic_table.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!--footer end-->
+    </section>
+{% endblock %}
+

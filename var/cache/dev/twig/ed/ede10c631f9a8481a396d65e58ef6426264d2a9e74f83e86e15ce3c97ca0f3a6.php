@@ -213,7 +213,10 @@ class __TwigTemplate_5c1328a79567148cb2e1e61ce421172e385b9b04efd43ecee0744633c31
 
 ";
         // line 72
-        echo "
+        echo "    <a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reclamation_listp");
+        echo "\">Imprimer</a>
+
 
                             </tbody>
                         </table>
@@ -341,6 +344,7 @@ class __TwigTemplate_5c1328a79567148cb2e1e61ce421172e385b9b04efd43ecee0744633c31
     </table>
 
 {#    <a href=\"{{ path('reclamation_new') }}\">Create new</a>#}
+    <a href=\"{{ path('reclamation_listp') }}\">Imprimer</a>
 
 
                             </tbody>

@@ -97,6 +97,14 @@ class __TwigTemplate_83f2833d9ddb231798f98b7f5d120d63cb2e6c9c3bfc013a2ee55ca9f9c
                             <table class=\"table table-striped table-advance table-hover\">
                                 <h4><i class=\"fa fa-angle-right\"></i>Réponses Réclamations</h4>
 
+                                <form method=\"post\" action=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Recherche");
+        echo "\">
+                                    <label>Recherche</label>
+                                    <input type=\"text\"  name=\"search\"><input type=\"submit\"  class=\"btn btn-primary btn-sm\" value=\"Recherche \">
+                                </form>
+
                                 <hr>
                                 <thead>
                                 <tr>
@@ -109,27 +117,27 @@ class __TwigTemplate_83f2833d9ddb231798f98b7f5d120d63cb2e6c9c3bfc013a2ee55ca9f9c
 
 
                                 ";
-        // line 29
+        // line 34
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listeTableau"]) || array_key_exists("listeTableau", $context) ? $context["listeTableau"] : (function () { throw new RuntimeError('Variable "listeTableau" does not exist.', 29, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listeTableau"]) || array_key_exists("listeTableau", $context) ? $context["listeTableau"] : (function () { throw new RuntimeError('Variable "listeTableau" does not exist.', 34, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 30
+            // line 35
             echo "                                    <tr>
                                         <td>";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "description", [], "any", false, false, false, 31), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "description", [], "any", false, false, false, 36), "html", null, true);
             echo " </td>
 
 
                                         <td>
                                             <button class=\"btn btn-success btn-xs\"><i class=\"fa fa-check\"></i></button>
                                             <a href=\"";
-            // line 36
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("updateR", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 36)]), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("updateR", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 41)]), "html", null, true);
             echo " \"  class=\"btn btn-primary btn-xs\" ><i class=\"fa fa-pencil\"></i></button></a>
                                             <a href=\"";
-            // line 37
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteR", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 37)]), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteR", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 42)]), "html", null, true);
             echo "\"><button class=\"btn btn-danger btn-xs\"><i class=\"fa fa-trash-o \"></i></button></a>
 
                                         </td>
@@ -139,12 +147,12 @@ class __TwigTemplate_83f2833d9ddb231798f98b7f5d120d63cb2e6c9c3bfc013a2ee55ca9f9c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
+        // line 47
         echo "                                <div class=\"top-menu\">
                                     <ul class=\"nav pull-right top-menu\" class=\"btn btn-primary btn-sm\">
                                         <li>
                                             <a class=\"logout\"  href=\"";
-        // line 45
+        // line 50
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("create");
         echo " \">Ajouter</a>
                                         </li>
@@ -201,7 +209,7 @@ class __TwigTemplate_83f2833d9ddb231798f98b7f5d120d63cb2e6c9c3bfc013a2ee55ca9f9c
 
     public function getDebugInfo()
     {
-        return array (  148 => 45,  143 => 42,  132 => 37,  128 => 36,  120 => 31,  117 => 30,  113 => 29,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  156 => 50,  151 => 47,  140 => 42,  136 => 41,  128 => 36,  125 => 35,  121 => 34,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -222,6 +230,11 @@ class __TwigTemplate_83f2833d9ddb231798f98b7f5d120d63cb2e6c9c3bfc013a2ee55ca9f9c
                         <div class=\"content-panel\">
                             <table class=\"table table-striped table-advance table-hover\">
                                 <h4><i class=\"fa fa-angle-right\"></i>Réponses Réclamations</h4>
+
+                                <form method=\"post\" action=\"{{ path('Recherche') }}\">
+                                    <label>Recherche</label>
+                                    <input type=\"text\"  name=\"search\"><input type=\"submit\"  class=\"btn btn-primary btn-sm\" value=\"Recherche \">
+                                </form>
 
                                 <hr>
                                 <thead>

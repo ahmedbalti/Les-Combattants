@@ -199,7 +199,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
             <div class=\"fa fa-bars tooltips\" data-placement=\"right\" data-original-title=\"Toggle Navigation\"></div>
         </div>
         <!--logo start-->
-        <a href=\"index.html\" class=\"logo\"><b>Cultu<span>ra</span></b></a>
+        <a href=\"index.html\" class=\"logo\"><b>Cultura<span>ra</span></b></a>
         <!--logo end-->
         <div class=\"nav notify-row\" id=\"top_menu\">
             <!--  notification start -->
@@ -663,7 +663,7 @@ class __TwigTemplate_d9877dd0e39f1521ed25d99cd653a789ad8ce762d5b34cf60fe62d78287
             <div class=\"fa fa-bars tooltips\" data-placement=\"right\" data-original-title=\"Toggle Navigation\"></div>
         </div>
         <!--logo start-->
-        <a href=\"index.html\" class=\"logo\"><b>Cultu<span>ra</span></b></a>
+        <a href=\"index.html\" class=\"logo\"><b>Cultura<span>ra</span></b></a>
         <!--logo end-->
         <div class=\"nav notify-row\" id=\"top_menu\">
             <!--  notification start -->
