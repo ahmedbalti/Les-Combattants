@@ -52,6 +52,14 @@ a, a:hover, a:focus {
 	background: #4ECDC4;
 }
 
+.msg {
+    background-color: #32CD32;
+    color: #000000;
+    padding: 1em 0;
+    /*font: italic bold 12px/30px Georgia, serif;*/
+    border: 1px solid #4CAF50;
+
+}
 .modal-title {
 	color: white;
 }

@@ -8,7 +8,14 @@
     <br>
     <br>
     <br>
-
+    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+    {% if flashbag_notices is not empty %}
+        <ul class="msg">
+            {% for notice in flashbag_notices %}
+                <h3 align="center"><li>{{ notice }}</li></h3>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <h1>Create new Reclamation</h1>
     {%  form_theme form 'bootstrap_4_layout.html.twig' %}
 

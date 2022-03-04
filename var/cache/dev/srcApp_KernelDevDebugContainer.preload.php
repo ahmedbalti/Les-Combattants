@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require 'C:\\Les_Combattants1\\vendor/autoload.php';
-require __DIR__.'/ContainerZhDu5xN/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerLxLYJTs/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -35,9 +35,11 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AvisController';
 $classes[] = 'App\Controller\BarController';
+$classes[] = 'App\Controller\BlogController';
 $classes[] = 'App\Controller\ChambreHController';
 $classes[] = 'App\Controller\ChambreMController';
 $classes[] = 'App\Controller\DashboardController';
+$classes[] = 'App\Controller\DefaultController';
 $classes[] = 'App\Controller\EventController';
 $classes[] = 'App\Controller\GiftController';
 $classes[] = 'App\Controller\HotelController';

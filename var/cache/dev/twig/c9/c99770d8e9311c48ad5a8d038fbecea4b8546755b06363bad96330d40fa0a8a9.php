@@ -110,18 +110,46 @@ class __TwigTemplate_06a21809847f6067337e5d9fa2b50d1b9257871fcba22917aaf63770e13
 
         ";
         // line 29
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 29, $this->source); })()), 'form_start');
+        $context["flashbag_notices"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 29, $this->source); })()), "session", [], "any", false, false, false, 29), "flashbag", [], "any", false, false, false, 29), "get", [0 => "notice"], "method", false, false, false, 29);
+        // line 30
+        echo "        ";
+        if ( !twig_test_empty((isset($context["flashbag_notices"]) || array_key_exists("flashbag_notices", $context) ? $context["flashbag_notices"] : (function () { throw new RuntimeError('Variable "flashbag_notices" does not exist.', 30, $this->source); })()))) {
+            // line 31
+            echo "        <ul class=\"msg\">
+         ";
+            // line 32
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["flashbag_notices"]) || array_key_exists("flashbag_notices", $context) ? $context["flashbag_notices"] : (function () { throw new RuntimeError('Variable "flashbag_notices" does not exist.', 32, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["notice"]) {
+                // line 33
+                echo "         <li>";
+                echo twig_escape_filter($this->env, $context["notice"], "html", null, true);
+                echo "</li>
+         ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['notice'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 35
+            echo "        </ul>
+        ";
+        }
+        // line 37
+        echo "
+        ";
+        // line 38
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 38, $this->source); })()), 'form_start');
         echo "
 
         ";
-        // line 31
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 31, $this->source); })()), "description", [], "any", false, false, false, 31), 'row');
+        // line 40
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 40, $this->source); })()), "description", [], "any", false, false, false, 40), 'row');
         echo "
 
 
         ";
-        // line 34
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 34, $this->source); })()), 'form_end');
+        // line 43
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 43, $this->source); })()), 'form_end');
         echo "
 
 
@@ -176,7 +204,7 @@ class __TwigTemplate_06a21809847f6067337e5d9fa2b50d1b9257871fcba22917aaf63770e13
 
     public function getDebugInfo()
     {
-        return array (  124 => 34,  118 => 31,  113 => 29,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  152 => 43,  146 => 40,  141 => 38,  138 => 37,  134 => 35,  125 => 33,  121 => 32,  118 => 31,  115 => 30,  113 => 29,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -208,6 +236,15 @@ class __TwigTemplate_06a21809847f6067337e5d9fa2b50d1b9257871fcba22917aaf63770e13
         <hr>
 
         <tbody>
+
+        {% set flashbag_notices = app.session.flashbag.get('notice') %}
+        {% if flashbag_notices is not empty %}
+        <ul class=\"msg\">
+         {% for notice in flashbag_notices %}
+         <li>{{ notice }}</li>
+         {% endfor %}
+        </ul>
+        {% endif %}
 
         {{ form_start (f) }}
 

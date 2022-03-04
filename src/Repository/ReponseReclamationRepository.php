@@ -18,6 +18,16 @@ class ReponseReclamationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ReponseReclamation::class);
     }
+//    public function findEntitiesByString($str){
+//        return $this->getEntityManager()
+//            ->createQuery(
+//                'SELECT p
+//                FROM ReponseReclamation:Post p
+//                WHERE p.title LIKE :str'
+//            )
+//            ->setParameter('str','%'.$str.'%')
+//            ->getResult();
+//    }
 
     // /**
     //  * @return ReponseReclamation[] Returns an array of ReponseReclamation objects

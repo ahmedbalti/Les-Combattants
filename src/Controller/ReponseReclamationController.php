@@ -32,6 +32,8 @@ class ReponseReclamationController extends AbstractController
         $list = $this->getDoctrine()
             ->getRepository(ReponseReclamation::class)// on a récupéré le repository de l 'entity classroom
             ->findAll();// find all correspond à select *
+        //$donnees=$this->getDoctrine()->getRepository(ReponseReclamation::class)->findBy(['description'=>'desc']);
+
         return $this->render('reponse_reclamation/read.html.twig', [
             'listeTableau' => $list,
         ]);
@@ -65,7 +67,9 @@ class ReponseReclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($ReponseRec);//correspond a insert into
             $em->flush();//on doit rafraichir la base de données
+            $this->get('session')->getFlashBag()->add('notice','Ajout fait avec succès');
             return $this->redirectToRoute('read');
+
         } else {
             return $this->render('reponse_reclamation/create.html.twig', ['f' => $form->createView()]);
         }
@@ -104,6 +108,30 @@ class ReponseReclamationController extends AbstractController
         ]);
 
     }
+//    /**
+//     * @Route("/recherche1", name="ajax_search")
+//     */
+//    public function searchAction(Request $request)
+//    {
+//        $em=$this->getDoctrine()->getManager();
+//        $requestString = $request->get('q');
+//        $posts = $em->getRepository('ReponseReclamation:Post')->findEntitiesByString($requestString);
+//        if(!$posts){
+//            $result['listeTableau']['error'] = "Post not found :(";
+//        }
+//        else {
+//            $result['listeTableau']=$this->getRealEntities($posts);
+//        }
+//        return new Response(json_encode($result));
+//    }
+//    public function getRealEntities($posts)
+//    {
+//        foreach($posts as $posts){
+//            $realEntities[$posts->getId()] =[$posts->getPhoto(), $posts->getTitle()];
+//
+//        }
+//        return $realEntities;
+//    }
 
 
 }

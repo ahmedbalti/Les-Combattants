@@ -1,28 +1,59 @@
 
+<!DOCTYPE html>
+<html ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the PDF</title>
 
-{% block content %}
+</head >
+<body style="
+  background-size: 200px 200px;
+  background-color:#75C2F2;" >
+{#<img src="{{ asset('/Front/images/logo.png') }}" />#}
+{#<img src="{{ base_path() }}/Front/images/logo.png" />#}
 
-                                {#{% block body %}#}
-                                <h1 align="center" >Liste Des Réclamations </h1>
-<img src="{{ asset ('Front/images/logo.png') }}" alt="LOGO"/>
-{#    <img src="{{ asset('Front/images/logo.png') }}" width="75" alt="LOGO" style="vertical-align:bottom">#}
+{#                                {% block body %}#}
+{#                                <h1 align="center" >Liste Des Réclamations </h1>#}
+
+    <img src="{{ 'Front/images/logo.png'}}" width="200" alt="LOGO" style="vertical-align:bottom">
 
 
 
-    <table class="table">
-                                    <thead>
-                                    <tr>
+<center><H1>Liste Des Réclamations</H1></center>
+<br>
+<br>
+<br>
+<table  Border="1" style=" width:100%;
+    font: 400 16px 'Calibri','Arial'; overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;" >
+    <thead >
+    <tr style="height: 60px;
+    background: #60AFE0;
+    font-size: 18px;">
+
+{#    <img src="{{ asset('/public/Front/images/logo.png') }}" width="75" alt="LOGO" style="vertical-align:bottom">#}
+
+
+
+{#    <table class="table">#}
+{#                                    <thead>#}
+
                                         <th>Id</th>
                                         <th>Description</th>
                                         <th>Date du problème</th>
                                         <th>Date Envoi</th>
                                         <th>Type</th>
-                                        <th>actions</th>
+{#                                        <th>actions</th>#}
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for reclamation in reclamations %}
-                                        <tr>
+                                        <tr style="height: 60px;
+      background: #CEECF4;
+      font-size: 18px;" >
+{#                                        <tr>#}
                                             <td>{{ reclamation.id }}</td>
                                             <td>{{ reclamation.description }}</td>
                                             <td>{{ reclamation.date  }}</td>
@@ -39,28 +70,10 @@
 
 
 
-                                </tbody>
 
-    </section>
-    </section>
-    <!-- /MAIN CONTENT -->
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-        <div class="text-center">
-            <p>
-                <strong></strong>
-            </p>
-            <div class="credits">
+</body>
+</html>
 
-                <a href="https://templatemag.com/"> </a>
-            </div>
-            <a href="basic_table.html#" class="go-top">
-                <i class="fa fa-angle-up"></i>
-            </a>
-        </div>
-    </footer>
-    <!--footer end-->
-    </section>
-{% endblock %}
+
+{#{% endblock %}#}
 

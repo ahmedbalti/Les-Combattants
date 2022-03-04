@@ -90,20 +90,46 @@ class __TwigTemplate_9359dbd33750b8eb45079e7e934326de662878cad6963d1d688c60ef0cb
     <br>
     <br>
     <br>
-
-    <h1>Create new Reclamation</h1>
     ";
-        // line 13
-        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
-        // line 14
+        // line 11
+        $context["flashbag_notices"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "session", [], "any", false, false, false, 11), "flashbag", [], "any", false, false, false, 11), "get", [0 => "notice"], "method", false, false, false, 11);
+        // line 12
+        echo "    ";
+        if ( !twig_test_empty((isset($context["flashbag_notices"]) || array_key_exists("flashbag_notices", $context) ? $context["flashbag_notices"] : (function () { throw new RuntimeError('Variable "flashbag_notices" does not exist.', 12, $this->source); })()))) {
+            // line 13
+            echo "        <ul class=\"msg\">
+            ";
+            // line 14
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["flashbag_notices"]) || array_key_exists("flashbag_notices", $context) ? $context["flashbag_notices"] : (function () { throw new RuntimeError('Variable "flashbag_notices" does not exist.', 14, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["notice"]) {
+                // line 15
+                echo "                <h3 align=\"center\"><li>";
+                echo twig_escape_filter($this->env, $context["notice"], "html", null, true);
+                echo "</li></h3>
+            ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['notice'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 17
+            echo "        </ul>
+    ";
+        }
+        // line 19
+        echo "    <h1>Create new Reclamation</h1>
+    ";
+        // line 20
+        $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), [0 => "bootstrap_4_layout.html.twig"], true);
+        // line 21
         echo "
     ";
-        // line 15
+        // line 22
         echo twig_include($this->env, $context, "reclamation/_form.html.twig");
         echo "
 
     <a href=\"";
-        // line 17
+        // line 24
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reclamation_index");
         echo "\">back to list</a>
 ";
@@ -127,7 +153,7 @@ class __TwigTemplate_9359dbd33750b8eb45079e7e934326de662878cad6963d1d688c60ef0cb
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  102 => 15,  99 => 14,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  133 => 24,  128 => 22,  125 => 21,  123 => 20,  120 => 19,  116 => 17,  107 => 15,  103 => 14,  100 => 13,  97 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -142,7 +168,14 @@ class __TwigTemplate_9359dbd33750b8eb45079e7e934326de662878cad6963d1d688c60ef0cb
     <br>
     <br>
     <br>
-
+    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+    {% if flashbag_notices is not empty %}
+        <ul class=\"msg\">
+            {% for notice in flashbag_notices %}
+                <h3 align=\"center\"><li>{{ notice }}</li></h3>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <h1>Create new Reclamation</h1>
     {%  form_theme form 'bootstrap_4_layout.html.twig' %}
 

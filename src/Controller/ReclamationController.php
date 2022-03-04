@@ -52,6 +52,7 @@ class ReclamationController extends AbstractController
     public function listp(ReclamationRepository $reclamationRepository): Response
     {
         $pdfOptions = new Options();
+
         $pdfOptions->set('defaultFont', 'Arial');
 
         // Instantiate Dompdf with our options
@@ -92,8 +93,9 @@ class ReclamationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($reclamation);
             $entityManager->flush();
+            $this->get('session')->getFlashBag()->add('notice','Ajout fait avec succès');
 
-            return $this->redirectToRoute('reclamation_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('reclamation_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('reclamation/new.html.twig', [

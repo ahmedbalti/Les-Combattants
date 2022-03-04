@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f680c29e-6c59-486c-a63e-415b5927a0b1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/stylepdf.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/blog/index.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/reclamation/listp.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Les_Combattants.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Les_Combattants.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Front/images/logo (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Front/images/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReponseReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReponseReclamationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ReponseReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReponseReclamationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReponseReclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReponseReclamationRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reponse_reclamation/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reponse_reclamation/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reponse_reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reponse_reclamation/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reponse_reclamation/read.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reponse_reclamation/read.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +35,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -182,7 +199,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/FirstProject1" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/sentraider_fr-develop" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -229,7 +247,11 @@
       <workItem from="1646087871418" duration="1433000" />
       <workItem from="1646090458274" duration="42000" />
       <workItem from="1646146117173" duration="9505000" />
-      <workItem from="1646250833287" duration="8877000" />
+      <workItem from="1646250833287" duration="16836000" />
+      <workItem from="1646296531928" duration="6152000" />
+      <workItem from="1646304196548" duration="13083000" />
+      <workItem from="1646389493708" duration="1362000" />
+      <workItem from="1646427293407" duration="4378000" />
     </task>
     <servers />
   </component>
