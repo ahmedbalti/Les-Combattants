@@ -1056,7 +1056,7 @@ $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBl
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "email_widget"));
 
         // line 215
-        $context["type"] = ((array_key_exists("type", $context)) ? (_twig_default_filter((isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 215, $this->source); })()), "email")) : ("email"));
+        $context["type"] = ((array_key_exists("type", $context)) ? (_twig_default_filter((isset($context["type"]) || array_key_exists("type", $context) ? $context["type"] : (function () { throw new RuntimeError('Variable "type" does not exist.', 215, $this->source); })()), "emails")) : ("emails"));
         // line 216
         $this->displayBlock("form_widget_simple", $context, $blocks);
         
@@ -2112,7 +2112,7 @@ $context["attrvalue"] === false)) {
 {%- endblock hidden_widget -%}
 
 {%- block email_widget -%}
-    {%- set type = type|default('email') -%}
+    {%- set type = type|default('emails') -%}
     {{ block('form_widget_simple') }}
 {%- endblock email_widget -%}
 

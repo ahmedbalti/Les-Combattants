@@ -47,7 +47,7 @@ class Reclamation
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity=ReponseReclamation::class, mappedBy="reclamation")
+     * @ORM\OneToMany(targetEntity=ReponseReclamation::class, mappedBy="reclamation" ,cascade={"persist","remove"})
      */
     private $reponse;
 

@@ -27,6 +27,7 @@ class ReponseReclamation
 
     /**
      * @ORM\ManyToOne(targetEntity=Reclamation::class, inversedBy="reponse")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $reclamation;
 

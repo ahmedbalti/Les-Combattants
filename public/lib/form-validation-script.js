@@ -52,7 +52,7 @@ var Script = function () {
                     minlength: "Your password must be at least 5 characters long",
                     equalTo: "Please enter the same password as above"
                 },
-                email: "Please enter a valid email address",
+                email: "Please enter a valid emails address",
                 agree: "Please accept our policy"
             }
         });

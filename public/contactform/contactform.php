@@ -15,14 +15,14 @@
   $contactform = new PHP_Mail_Form;
   $contactform->ajax = true;
 
-  // Replace with your real receiving email address
+  // Replace with your real receiving emails address
   $contactform->to = 'contact@example.com';
   $contactform->from_name = $_POST['name'];
-  $contactform->from_email = $_POST['email'];
+  $contactform->from_email = $_POST['emails'];
   $contactform->subject = $_POST['subject'];
 
   $contactform->add_message( $_POST['name'], 'From');
-  $contactform->add_message( $_POST['email'], 'Email');
+  $contactform->add_message( $_POST['emails'], 'Email');
   $contactform->add_message( $_POST['message'], 'Message', 10);
 
   echo $contactform->send();

@@ -13,6 +13,12 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'targetEntity' => [
                 'App\\Entity\\ReponseReclamation',
             ],
+            'cascade' => [
+                [
+                    'persist',
+                    'remove',
+                ],
+            ],
         ],
     ],
     [
