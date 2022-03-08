@@ -1,0 +1,50 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Table{% endblock %}
+
+{% block content %}
+
+    <div class="hero-wrap" style="background-image: url({{ asset('front/images/bg_3.jpg') }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                    <div class="text">
+                        <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home</a></span> <span><a href="{{ path('hotelList_index') }}">Hotel</a></span>  <span><a href="{{ path('homeList_index') }}">Maison d'hote</a> </span> <span><a href="{{ path('roomlist_index') }}">Rooms</a></span> </p>
+                        <h1 class="mb-4 bread">Our Rooms</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row d-flex">
+
+                {%for reservation in reservations %}
+
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch">
+                            <a href="blog-single.html" class="block-20 rounded" style="width:250px; background-image: url('/img/{{ reservation.file }}');">
+                            </a>
+                            <div class="text mt-3">
+                                <div class="meta mb-2">
+                                    <div><a href="#">{{ reservation.date.format('d/m/Y') }}</a></div>
+                                    <div><a href="#">{{ reservation.nbrPersonnes }} personnes</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">{{ reservation.heure|date('H:i') }}</a></h3>
+                                <p>{{ reservation.name }}</p>
+                                <a href="{{ path('reservation_delete',{'id':reservation.id}) }}" class="btn btn-danger rounded">Supprimer</a>
+                                <a href="{{ path('reservation_edit',{'id':reservation.id}) }}" class="btn btn-secondary rounded">Modifier</a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

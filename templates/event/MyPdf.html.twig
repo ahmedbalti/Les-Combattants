@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>List des Evenements</title>
+</head>
+<body>
+{% for event in events %}
+
+    <H2>{{ event.nom}}</H2>
+    <H4>{{ event.date|date('Y-m-d') }}</H4>
+    <H4>{{ event.type }} </H4>
+    <H4>{{ event.description }}</H4>
+{% endfor %}
+
+
+</body>
+</html>

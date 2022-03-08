@@ -8,7 +8,7 @@
     <section id="container">
         <section id="main-content">
             <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> Gérer les restourent</h3>
+                <h3><i class="fa fa-angle-right"></i> Gérer les restaurents</h3>
 
                 <section id="main-content">
                     <section class="wrapper">
@@ -22,7 +22,7 @@
                                         <div class="form-group has-success">
                                             <label class="col-lg-2 control-label">Numéro</label>
                                             <div class="col-lg-10">
-                                                {{ form_widget(form.numero, {'attr': {'class': 'form-control'}}) }}
+                                                {{ form_widget(form.numero, {'attr': {'class': 'form-control numberonly'}}) }}
                                                 <p class="help-block"></p>
                                             </div>
                                         </div>
@@ -55,7 +55,6 @@
                                                 {{ form_widget(form.cover) }}
                                                 <p class="help-block"></p>
                                             </div>
-                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
@@ -105,5 +104,19 @@
         </footer>
         <!--footer end-->
     </section>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(".numberonly").keypress(function( event ){
+            var key = event.which;
+            var maxLength = $(this).val().length;
+            if (maxLength >= 2) {
+                return false;
+            }
+            if( ! ( key >= 48 && key <= 57 ))
+                event.preventDefault();
+        });
+    </script>
 
 {% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Hello EventFrontController!{% endblock %}
+
+{% block content %}
+<div class="hero-wrap" style="background-image: url('{{ asset('front/images/bg_3.jpg') }}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="../promotion/index.html.twig">Home</a></span></p>
+                    <h1 class="mb-4 bread">Evenements</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-no-pb ftco-room">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Choisissez De nos offres</h2>
+            </div>
+        </div>
+        <ol>
+            <form method="post" action="{{ path('searchEvent') }}">
+                <label>Search</label>
+                <input type="text" name="search">
+                <input type="submit" value="Search" class="btn btn-primary" >
+
+            </form>
+        </ol>
+        <li>
+
+
+
+            <a class="logout"  href={{ path('listEventsByDate') }}>Trier par date</a>
+        </li>
+
+        <div class="row no-gutters">
+            {% for event in events %}
+                <div class="col-lg-6">
+                    <div class="room-wrap d-md-flex ftco-animate">
+                        <!-- <a href="#" class="img" style="background-image: url(images/);"></a> -->
+                        <img src="" style="background-image: none">
+                        <div class="half left-arrow d-flex align-items-center">
+                            <div class="text p-4 text-center">
+                                <p class="mb-0">{{ event.description }} <span class="per">{{ event.type }}</span></p>
+                                <h3 class="mb-3"> {{ event.nom }}</h3>
+                                <p class="pt-1"><a href="{{ path('showEventF',{'id':event.id}) }}" class="btn-custom px-3 py-2 rounded">View Details <span class="icon-long-arrow-right"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% endblock %}

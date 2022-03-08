@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class restaurentType extends AbstractType
+class barType extends AbstractType
 {
     //formulaire de la fonction ajouter
     /**

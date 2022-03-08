@@ -6,10 +6,11 @@ use App\Repository\ClubRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Entity\File as EmbeddedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Table(name="club")
  * @ORM\Entity(repositoryClass=ClubRepository::class)
+ * @ApiResource()
  */
 class Club
 {
@@ -51,6 +52,13 @@ class Club
      * @ORM\Column(type="boolean")
      */
     private $disponibilite = true;
+
+    /**
+     * @var Club
+     * @ORM\OneToMany (targetEntity="Table", mappedBy="club", orphanRemoval=true, cascade={"remove"})
+     *
+     */
+    protected $tables;
 
     public function getId(): ?int
     {

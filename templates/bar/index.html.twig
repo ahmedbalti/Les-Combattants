@@ -16,17 +16,16 @@
                             <table class="table table-striped table-advance table-hover">
 
                                 <div class="top-menu">
-                                    <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
+                                    <ul class="nav pull-right top-menu">
                                         <li>
-                                            <a href="{{ path('restaurent_new') }}">Add Club</a>
+                                            <a style="color: #f2f2f2;" class="btn btn-theme" href="{{ path('bar_new') }}">Ajouter</a>
 
                                         </li>
                                         <li>
-                                            <form class="pull-right hidden" role="search" id="nav-search-form" method="post" }}">
-                                            <div class="input-append">
-                                                <input name ="search" type="text" class="form-control " placeholder="Search">
-                                                <button type="submit" class="btn btn-default">Rechercher</button>
-                                            </div>
+                                            <form class="pull-right hidden" role="search" id="nav-search-form" method="post">
+                                                <div class="input-append">
+                                                    <input name ="search" id="search" type="text" class="form-control " placeholder="Search">
+                                                </div>
                                             </form>
                                         </li>
                                     </ul>
@@ -37,36 +36,31 @@
                                 <hr>
                                 <thead>
                                 <tr>
-                                    <th style="width: 5%"><i class="fa fa-bullhorn"></i> ID</th>
-                                    <th style="width: 10%" class="hidden-phone"><i class="fa fa-question-circle"></i> Nom</th>
-                                    <th style="width: 10%"><i class="fa fa-bookmark"></i> Lieu</th>
-                                    <th style="width: 40%"><i class=" fa fa-edit"></i> Description</th>
-                                    <th style="width: 10%"><i class=" fa fa-edit"></i> Image</th>
+                                    <th style="width: 10%" class="hidden-phone"><i class="fa fa-pencil "></i> Nom</th>
+                                    <th style="width: 10%"><i class="fa fa-location-arrow"></i> Lieu</th>
+                                    <th style="width: 45%"><i class=" fa fa-edit"></i> Description</th>
+                                    <th style="width: 10%"><i class=" fa fa-file-image-o"></i> Image</th>
                                     <th style="width: 10%"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-
-                                {%for restaurent in restaurents %}
+                                <tbody id="barsHtml">
+                                <!--affichage des retaurents-->
+                                {%for bar in bars %}
                                     <tr>
-                                        <td>
-                                            <a href="basic_table.html#">{{ restaurent.id }}</a>
-                                        </td>
-                                        <td class="hidden-phone">{{ restaurent.nom }}</td>
-                                        <td>{{ restaurent.lieu }} </td>
-                                        <td>{{ restaurent.description }} </td>
+                                        <td class="hidden-phone">{{ bar.nom }}</td>
+                                        <td>{{ bar.lieu }} </td>
+                                        <td>{{ bar.description }} </td>
 
 
                                         <td>
                                             <div class="fileupload-new thumbnail" >
-                                                <img src="/img/{{ restaurent.file }}" alt="" style="width: 200px; height: 100px;" />
+                                                <img src="/img/{{ bar.file }}" alt="" style="width: 200px; height: 100px;" />
                                             </div>
                                         </td>
-
                                         <td>
-                                            <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                            <a href="{{ path('restaurent_edit',{'id':restaurent.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                            <a href="{{ path('restaurent_delete',{'id':restaurent.id}) }}"> <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> </a>
+                                            <a href="{{ path('table_r',{'id':bar.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                                            <a href="{{ path('bar_edit',{'id':bar.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                            <a href="{{ path('bar_delete',{'id':bar.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
                                         </td>
                                     </tr>
 
@@ -74,6 +68,11 @@
 
                                 </tbody>
                             </table>
+
+                            <div class="centered mt">
+                                {{ knp_pagination_render(bars) }}
+                            </div>
+
                         </div>
                         <!-- /content-panel -->
                     </div>
@@ -106,4 +105,57 @@
         </footer>
         <!--footer end-->
     </section>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            //keyup bouton tla3
+            $("#search").keyup(function() {
+                var minlength = 0;
+                var that = this;
+                var value = $(this).val();
+                //barhtml win bch na3mlo affichage lel retaurents
+                var barSelector = $("#barsHtml").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('bar_ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+
+                            var result = JSON.parse(msg);
+                            $.each(result, function(key, arr) {
+
+                                var link_edit = "{{ path("bar_edit",{'id': "ID"}) }}"
+                                link_edit = link_edit.replace("ID", arr['id']);
+
+                                var link_delete = "{{ path("bar_delete",{'id': "ID"}) }}"
+                                link_delete = link_delete.replace("ID", arr['id']);
+                                //append ma3neha 7ot fl blasa athika el html
+                                barSelector.append('<tr>'+
+                                    '<td class="hidden-phone">'+arr['nom']+'</td>'+
+                                    '<td>'+arr['lieu']+'</td>'+
+                                    '<td>'+arr['description']+'</td>'+
+                                    '<td><div class="fileupload-new thumbnail"><img src="/img/'+arr['file']+'" alt="" style="width: 200px; height: 100px;" /></div></td>'+
+                                    '<td><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>'+
+                                    '<a href='+link_edit+'> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> </a>'+
+                                    '<a href='+link_delete+'> <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> </a></td></tr>');
+                            });
+                        },
+                        error: function (request, status, error) {
+                            console.log("error");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
 {% endblock %}

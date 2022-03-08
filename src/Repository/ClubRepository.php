@@ -37,6 +37,7 @@ class ClubRepository extends ServiceEntityRepository
         parent::__construct($registry, Club::class);
     }
 
+    //fonction recherche : ne5dho string li ktebneh w nchoufouh mawjoud ou nn f liste des restos
     public function findByString($str,$type){
         $qb = $this->createQueryBuilder('c');
         $qb->select( 'c.id,c.nom,c.lieu,c.description,c.disponibilite,i.file' )

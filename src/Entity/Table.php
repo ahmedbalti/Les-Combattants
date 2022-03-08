@@ -2,12 +2,20 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\TableRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\TableRController;
 /**
  * @ORM\Entity(repositoryClass=TableRepository::class)
- * @ORM\Table(name="`table`")
+ * @ORM\Table(name="`tabl`")
+ * @ApiResource(
+ *  collectionOperations={
+ *      "get","post",
+ *      "table_r"={"table_r"="api_me"}
+ *  }
+ * )
  */
 class Table
 {
@@ -19,7 +27,7 @@ class Table
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="smallint")
      */
     private $numero;
 
@@ -51,7 +59,8 @@ class Table
     private $disponibilite = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Club", cascade={"persist"})
+     * @var Club
+     * @ORM\ManyToOne(targetEntity="Club", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="club", referencedColumnName="id")
      **/
     private $club;

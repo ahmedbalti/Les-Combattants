@@ -235,7 +235,7 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><a class="logout" href="login.html">Logoutt</a></li>
             </ul>
         </div>
     </header>
@@ -249,9 +249,9 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <p class="centered"><a href=""><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
-                <h5 class="centered">Admin</h5>
+                <h5 class="centered">Adminn</h5>
                 <li class="mt">
-                    <a class="active" href="index.html">
+                    <a href="index.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -270,31 +270,40 @@
                 </li>
 
 
+
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
-                        <span>Clubs</span>
+                        <span>Users</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="restaurent">Restaurants</a></li>
-                        <li><a href="tablesRestaurants.html">Restaurants Tables</a></li>
-                        <li><a href="bar">Bars</a></li>
-                        <li><a href="barsTables.html">Bars Tables</a></li>
+                        <li><a href="{{ path('admin_utilisateurs') }}">Gestion Users</a></li>
                     </ul>
                 </li>
 
 
 
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a class="active"  href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Clubs</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{ path('restaurent_index') }}">Restaurants</a></li>
+                        <li><a href="{{ path('bar_index') }}">Bars</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li class="sub-menu">
+                    <a class="active" href="javascript:;">
                         <i class="fa fa-desktop"></i>
                         <span>Accommodation</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="hotels.html">Hotels</a></li>
-                        <li><a href="chambresHotels.html">Hotels rooms</a></li>
-                        <li><a href="maison.html">Guest houses</a></li>
-                        <li><a href="chambresMaison.html">Houses rooms</a></li>
+                        <li><a href="{{ path('hotel_index') }}">Hotels</a></li>
+                        <li><a href="{{ path('home_index') }}">Guest houses</a></li>
                     </ul>
                 </li>
 
@@ -305,8 +314,8 @@
                         <span>Récompense</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="gifts.html">Gifts</a></li>
-                        <li><a href="promotion.html">Promotions</a></li>
+                        <li><a href="{{ path('showAffected') }}">Promotions Affectés</a></li>
+                        <li><a href="{{ path('promotionList') }}">Promotions</a></li>
                     </ul>
                 </li>
 

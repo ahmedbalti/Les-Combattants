@@ -23,7 +23,7 @@
                                         </li>
                                         <li>
                                             <form class="pull-right hidden" role="search" id="nav-search-form" method="post">
-                                            <div class="input-append">
+                                                <div class="input-append">
                                                     <input name ="search" id="search" type="text" class="form-control " placeholder="Search">
                                                 </div>
                                             </form>
@@ -36,38 +36,44 @@
                                 <hr>
                                 <thead>
                                 <tr>
-                                    <th style="width: 10%" class="hidden-phone"><i class="fa fa-question-circle"></i> Nom</th>
+                                    <th style="width: 10%" class="hidden-phone"><i class="fa fa-pencil "></i> Nom</th>
                                     <th style="width: 10%"><i class="fa fa-location-arrow"></i> Lieu</th>
                                     <th style="width: 45%"><i class=" fa fa-edit"></i> Description</th>
-                                    <th style="width: 10%"><i class=" fa fa-edit"></i> Image</th>
+                                    <th style="width: 10%"><i class=" fa fa-file-image-o"></i> Image</th>
                                     <th style="width: 10%"></th>
                                 </tr>
                                 </thead>
                                 <tbody id="restaurentsHtml">
-
+                                <!--affichage des retaurents-->
                                 {%for restaurent in restaurents %}
-                                <tr>
-                                    <td class="hidden-phone">{{ restaurent.nom }}</td>
-                                    <td>{{ restaurent.lieu }} </td>
-                                    <td>{{ restaurent.description }} </td>
+                                    <tr>
+                                        <td class="hidden-phone">{{ restaurent.nom }}</td>
+                                        <td>{{ restaurent.lieu }} </td>
+                                        <td>{{ restaurent.description }} </td>
 
 
-                                    <td>
-                                        <div class="fileupload-new thumbnail" >
-                                            <img src="/img/{{ restaurent.file }}" alt="" style="width: 200px; height: 100px;" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="{{ path('table_r',{'id':restaurent.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
-                                        <a href="{{ path('restaurent_edit',{'id':restaurent.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                        <a href="{{ path('restaurent_delete',{'id':restaurent.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <div class="fileupload-new thumbnail" >
+                                                <img src="/img/{{ restaurent.file }}" alt="" style="width: 200px; height: 100px;" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('table_r',{'id':restaurent.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                                            <a href="{{ path('restaurent_edit',{'id':restaurent.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                            <a href="{{ path('restaurent_delete',{'id':restaurent.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                            <a href="{{ path('qrcode_restaurent',{'id':restaurent.id}) }}"><button class="btn btn-default btn-xs"><i class="fa fa-qrcode "></i></button></a>
+                                        </td>
+                                    </tr>
 
                                 {% endfor %}
 
                                 </tbody>
                             </table>
+
+                            <div class="centered mt">
+                                {{ knp_pagination_render(restaurents) }}
+                            </div>
+
                         </div>
                         <!-- /content-panel -->
                     </div>
@@ -106,23 +112,19 @@
     <script type="text/javascript">
         jQuery(document).ready(function() {
             var searchRequest = null;
+            //keyup bouton tla3
             $("#search").keyup(function() {
                 var minlength = 0;
                 var that = this;
                 var value = $(this).val();
-
+                //restaurenthtml win bch na3mlo affichage lel retaurents
                 var restaurentSelector = $("#restaurentsHtml").html('');
-
-                if(value.length == 0){
-                    console.log("vide")
-                }
-
                 if (value.length >= minlength ) {
                     if (searchRequest != null)
                         searchRequest.abort();
                     searchRequest = $.ajax({
                         type: "GET",
-                        url: "{{ path('ajax_search') }}",
+                        url: "{{ path('resto_ajax_search') }}",
                         data: {
                             'q' : value
                         },
@@ -137,15 +139,15 @@
 
                                 var link_delete = "{{ path("restaurent_delete",{'id': "ID"}) }}"
                                 link_delete = link_delete.replace("ID", arr['id']);
-
+                                //append ma3neha 7ot fl blasa athika el html
                                 restaurentSelector.append('<tr>'+
-                                '<td class="hidden-phone">'+arr['nom']+'</td>'+
-                                '<td>'+arr['lieu']+'</td>'+
-                                '<td>'+arr['description']+'</td>'+
-                                '<td><div class="fileupload-new thumbnail"><img src="/img/'+arr['file']+'" alt="" style="width: 200px; height: 100px;" /></div></td>'+
-                                '<td><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>'+
-                                '<a href='+link_edit+'> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> </a>'+
-                                '<a href='+link_delete+'> <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> </a></td></tr>');
+                                    '<td class="hidden-phone">'+arr['nom']+'</td>'+
+                                    '<td>'+arr['lieu']+'</td>'+
+                                    '<td>'+arr['description']+'</td>'+
+                                    '<td><div class="fileupload-new thumbnail"><img src="/img/'+arr['file']+'" alt="" style="width: 200px; height: 100px;" /></div></td>'+
+                                    '<td><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>'+
+                                    '<a href='+link_edit+'> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> </a>'+
+                                    '<a href='+link_delete+'> <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> </a></td></tr>');
                             });
                         },
                         error: function (request, status, error) {

@@ -12,15 +12,18 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class restaurentType extends AbstractType
 {
+    //formulaire de la fonction ajouter
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('lieu')->add('description')->add('reset', ResetType::class)
+        $builder->add('nom')->add('lieu')->add('description')
             ->add('cover', ImageType::class, array(
-                'label' => 'Cover'
+                'label' => 'Cover',
+                'required' => true
             ))
+            //bouton reset pour effacer tous les champs
             ->add('reset', ResetType::class)
             ->add('ok',SubmitType::class);
     }

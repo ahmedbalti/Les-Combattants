@@ -18,7 +18,7 @@
                                 <div class="top-menu">
                                     <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
                                         <li>
-                                            <a style="color: #f2f2f2;" class="btn btn-theme" href="{{ path('table_new')}}">Ajouter</a>
+                                            <a style="color: #f2f2f2;" class="btn btn-theme" href="{{ path('table_new',{'id':restaurent_id})}}">Ajouter</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -32,7 +32,7 @@
                                     <th style="width: 15%"><i class="fa fa-bookmark"></i> Position</th>
                                     <th style="width: 15%"><i class=" fa fa-edit"></i> Forme</th>
                                     <th style="width: 15%"><i class=" fa fa-edit"></i> Type</th>
-                                    <th style="width: 15%" ><i class=" fa fa-edit"></i> Image</th>
+                                    <th style="width: 15%" ><i class=" fa  fa-file-image-o"></i> Image</th>
                                     <th style="width: 15%"><i class=" fa fa-edit"></i> Disponibilité</th>
                                     <th style="width: 15%"></th>
                                 </tr>
@@ -44,8 +44,7 @@
                                         <td class="hidden-phone">{{ table.numero }}</td>
                                         <td>{{ table.position }} </td>
                                         <td>{{ table.forme }} </td>
-                                        <td>{{ table.type }} personnes </td>
-
+                                        <td>{{ table.type }} personnes</td>
                                         <td>
                                             <div class="fileupload-new thumbnail" >
                                                 <img src="/img/{{ table.file }}" alt="" style="width: 200px; height: 100px;" />
@@ -53,31 +52,25 @@
                                         </td>
 
                                         <td>
-                                            <div class="btn-group btn-toggle" data-toggle="buttons">
+
 
                                                 {% if table.disponibilite %}
-                                                    <label class="btn btn-success">
-                                                        <input type="radio" name="options" value="option1" checked=""> On
-                                                    </label>
-                                                    <label class="btn btn-default active">
-                                                        <input type="radio" name="options" value="option2" > Off
-                                                    </label>
+
+                                                    <a class="btn btn-success" href="{{ path('table_set_dispo',{'id':table.id}) }}">Dispo</a>
+                                                    <a class="btn btn-default" href="{{ path('table_set_indispo',{'id':table.id}) }}">Indispo</a>
+
                                                 {% elseif table.disponibilite == false %}
-                                                    <label class="btn btn-default">
-                                                        <input type="radio" name="options" value="option1" checked=""> On
-                                                    </label>
-                                                    <label class="btn btn-danger active">
-                                                        <input type="radio" name="options" value="option2" > Off
-                                                    </label>
+
+                                                    <a class="btn btn-default" href="{{ path('table_set_dispo',{'id':table.id}) }}">Dispo</a>
+                                                    <a class="btn btn-danger" href="{{ path('table_set_indispo',{'id':table.id}) }}">Indispo</a>
+
                                                 {% else %}
-                                                    <label class="btn btn-default">
-                                                        <input type="radio" name="options" value="option1" checked=""> On
-                                                    </label>
-                                                    <label class="btn btn-default active">
-                                                        <input type="radio" name="options" value="option2" > Off
-                                                    </label>
+
+                                                    <a class="btn btn-default" href="{{ path('table_set_dispo',{'id':table.id}) }}">Dispo</a>
+                                                    <a class="btn btn-default" href="{{ path('table_set_indispo',{'id':table.id}) }}">Indispo</a>
+
                                                 {% endif %}
-                                            </div>
+
                                         </td>
                                         <td>
                                             <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
@@ -89,11 +82,46 @@
                                 {% endfor %}
 
                                 </tbody>
+
+                                <!-- /col-md-4-->
+                                <div class="col-md-12">
+                                    <div class="darkblue-panel pn">
+                                        <div class="darkblue-header">
+                                            <h5>Disponibilité des tables</h5>
+                                        </div>
+                                        <canvas id="serverstatus02" height="120" width="120"></canvas>
+                                        <script>
+                                            var doughnutData = [{
+                                                value: {{ pourcentage_dispo }},
+                                                color: "#5cb85c"
+                                            },
+                                                {
+                                                    value: {{ pourcentage_nondispo }},
+                                                    color: "#f68275"
+                                                }
+                                            ];
+                                            var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
+                                        </script>
+                                        <p>Répartition des tables</p>
+                                        <footer>
+                                            <div class="pull-left">
+                                                <h5><button class="btn btn-danger btn-xs" style="color:#f68275;padding: 5px 5px;font-size: 12px;line-height: 1.5;border-radius: 3px;"></button>Non disponible</h5>
+                                            </div>
+                                            <div class="pull-right">
+                                                <h5><button class="btn btn-success btn-xs" style="color:#f68275;padding: 5px 5px;font-size: 12px;line-height: 1.5;border-radius: 3px;"></button>Disponible</h5>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                    <!--  /darkblue panel -->
+                                </div>
+                                <!-- /col-md-4 -->
+
                             </table>
                         </div>
                         <!-- /content-panel -->
                     </div>
                     <!-- /col-md-12 -->
+
                 </div>
                 <!-- /row -->
             </section>

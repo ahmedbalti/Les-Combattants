@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Room{% endblock %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <h3><i class="fa fa-angle-right"></i> Gérer les chambres des hotels</h3>
+
+                <section id="main-content">
+                    <section class="wrapper">
+
+
+
+                        <div class="row mt">
+                            <div class="col-lg-12">
+
+                                <div >
+                                    <form role="form" class="form-horizontal style-form">
+                                        <div class="form-group has-success">
+                                            <label class="col-lg-2 control-label">Number </label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Number, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-error">
+                                            <label class="col-lg-2 control-label">Etage</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Etage, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Beds Number</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.NbLit, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Price</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Price, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Place</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Emplacement, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Description</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Description, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="col-lg-2 control-label">Type</label>
+                                            <div class="col-lg-10">
+                                                {{ form_widget(form.Type, {'attr': {'class': 'form-control'}}) }}
+                                                <p class="help-block"></p>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-lg-2 control-label">Image</label>
+                                        <div class="col-lg-10">
+                                            {{ form_widget(form.cover) }}
+                                            <p class="help-block"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                {{ form_widget(form.reset, {'attr': {'class': 'btn btn-theme04'}}) }}
+                                                {{ form_widget(form.ok, {'attr': {'class': 'btn btn-theme'}}) }}
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /form-panel -->
+                            </div>
+                            <!-- /col-lg-12 -->
+                        </div>
+                        <!-- /row -->
+                        <!-- FORM VALIDATION -->
+
+                        <!-- /row -->
+                    </section>
+                    <!-- /wrapper -->
+                </section>
+
+            </section>
+        </section>
+        {{ form_end(form) }}
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    <strong></strong>
+                </p>
+                <div class="credits">
+                    <!--
+                      You are NOT allowed to delete the credit link to TemplateMag with free version.
+                      You can delete the credit link only if you bought the pro version.
+                      Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+                      Licensing information: https://templatemag.com/license/
+                    -->
+                    <a href="https://templatemag.com/"> </a>
+                </div>
+                <a href="basic_table.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(".numberonly").keypress(function( event ){
+            var key = event.which;
+            var maxLength = $(this).val().length;
+            if (maxLength >= 2) {
+                return false;
+            }
+            if( ! ( key >= 48 && key <= 57 ))
+                event.preventDefault();
+        });
+    </script>
+
+{% endblock %}

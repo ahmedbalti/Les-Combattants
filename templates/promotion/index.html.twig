@@ -1,20 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PromotionController!{% endblock %}
+{% block title %}Promotion{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <h3><i class="fa fa-angle-right"></i> Gérer les promotions</h3>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
+                            <table class="table table-striped table-advance table-hover">
+                                <h4><i class="fa fa-angle-right"></i> Liste des promotions</h4>
+                                <div class="top-menu">
+                                    <ul>
+                                        <form method="post" action="{{ path('searchPromotion') }}">
+                                            <label>Search</label>
+                                            <input type="text" name="search" placeholder="Chercher par title">
+                                            <input type="submit" value="Search" class="btn btn-primary btn-sm" >
+                                        </form>
+                                    </ul>
+                                    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+                                    {% if flashbag_notices is not empty %}
+                                        <ul class="msg">
+                                            {% for notice in flashbag_notices %}
+                                                <h3 align="center"><li>{{ notice }}</li></h3>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
+                                        <li>
+                                            <a class="logout"  href="{{ path("addPromotion") }}">Ajouter Promotion</a>
+                                        </li>
+                                        <li>
+                                            <a class="logout"  href="{{ path("triIDC") }}">Tri Croissant</a>
+                                        </li>
+                                        <li>
+                                            <a class="logout"  href="{{ path("triIDD") }}">Tri decroissant</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <hr>
+                                <thead>
+                                <tr>
+                                    <th><i class="fa fa-bullhorn"></i> ID</th>
+                                    <th class=" fa fa-edit"><i class="fa fa-question-circle"></i> Type</th>
+                                    <th><i class="fa fa-bookmark"></i> Description</th>
+                                    <th><i class="fa fa-bookmark"></i> Score Minimum</th>
+                                    <th><i class=" fa fa-edit"></i> Title</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if found == true %}
+                                    {% for promotion in promotions %}
+                                        <tr>
+                                            <td>
+                                                <a href="basic_table.html#">{{ promotion.id }}</a>
+                                            </td>
+                                            <td class="hidden-phone">{{ promotion.type }}</td>
+                                            <td>{{ promotion.description }} </td>
+                                            <td>{{ promotion.scoreMin }} </td>
+                                            <td>{{ promotion.title }}</td>
+                                            <td>
+                                                <a><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                                                <a href="{{ path('updateP', {'id':promotion.id}) }}"> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                <a href="{{ path('deleteP',{'id':promotion.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                       <tr>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Arij/Documents/Les_Combattants/src/Controller/PromotionController.php'|file_link(0) }}">src/Controller/PromotionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Arij/Documents/Les_Combattants/templates/promotion/index.html.twig'|file_link(0) }}">templates/promotion/index.html.twig</a></code></li>
-    </ul>
-</div>
+                                       </tr>
+                                {% endif %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /content-panel -->
+                    </div>
+                    <!-- /col-md-12 -->
+                </div>
+                <!-- /row -->
+            </section>
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Load Flashy default JavaScript -->
+        <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+        <!-- Include Flashy default partial -->
+        {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+        <!--footer end-->
+    </section>
+
+
 {% endblock %}

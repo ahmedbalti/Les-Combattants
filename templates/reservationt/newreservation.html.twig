@@ -1,0 +1,119 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block content %}
+
+<div class="hero-wrap" style="background-image: url({{ asset('front/images/bg_3.jpg') }});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="">Home</a></span>  <span><a href="{{ path('restaurentList_index') }}">Hotel</a></span>  <span><a href="{{ path('barList_index') }}">Maison d'hote</a> </span></p>
+                    <h1 class="mb-4 bread"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ form_start(form) }}
+<section id="container">
+    <section id="main-content">
+        <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i> Formulaire de Réservation</h3>
+
+            <section id="main-content">
+                <section class="wrapper">
+
+
+                    <div class="row mt">
+                        <div class="col-lg-12">
+
+                            <div >
+                                <form role="form" class="form-horizontal style-form">
+                                    <div class="form-group has-success">
+                                        <label class="col-lg-2 control-label">Nombre de Personne</label>
+                                        <div class="col-lg-10">
+                                            {{ form_widget(form.nbrPersonnes, {'attr': {'class': 'numberonly'}}) }}
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-error">
+                                        <label class="col-lg-2 control-label">Heure</label>
+                                        <div class="col-lg-10">
+                                            {{ form_widget(form.heure) }}
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-warning">
+                                        <label class="col-lg-2 control-label">Date de réservation</label>
+                                        <div class="col-lg-10">
+
+                                            {{ form_widget(form.date) }}
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group has-warning">
+                                        <label class="col-lg-2 control-label">Réservé pour</label>
+                                        <div class="col-lg-10">
+                                            {{ form_widget(form.name, {'attr': {'class': 'alphabetsonly'}}) }}
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            {{ form_widget(form.reset, {'attr': {'class': 'btn btn-danger rounded'}}) }}
+                                            {{ form_widget(form.ok, {'attr': {'class': 'btn btn-secondary rounded'}}) }}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /form-panel -->
+                        </div>
+                        <!-- /col-lg-12 -->
+                    </div>
+                    <!-- /row -->
+                    <!-- FORM VALIDATION -->
+
+                    <!-- /row -->
+                </section>
+                <!-- /wrapper -->
+            </section>
+
+        </section>
+    </section>
+    {{ form_end(form) }}
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(".numberonly").keypress(function( event ){
+            var key = event.which;
+            var maxLength = $(this).val().length;
+            if (maxLength >= 2) {
+                return false;
+            }
+            if( ! ( key >= 48 && key <= 57 ))
+                event.preventDefault();
+        });
+
+        $('.alphabetsonly').keypress(function (e) {
+            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+            else {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+    {% endblock %}
+

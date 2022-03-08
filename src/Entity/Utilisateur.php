@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,7 +45,7 @@ class Utilisateur
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $numTel;
 
@@ -51,6 +53,21 @@ class Utilisateur
      * @ORM\Column(type="integer")
      */
     private $score;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $Type;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PromotionAffecte::class, mappedBy="idUser", orphanRemoval=true)
+     */
+    private $promotion;
+
+    public function __construct()
+    {
+        $this->promotion = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -117,12 +134,12 @@ class Utilisateur
         return $this;
     }
 
-    public function getNumTel(): ?string
+    public function getNumTel(): ?int
     {
         return $this->numTel;
     }
 
-    public function setNumTel(string $numTel): self
+    public function setNumTel(int $numTel): self
     {
         $this->numTel = $numTel;
 
@@ -139,5 +156,52 @@ class Utilisateur
         $this->score = $score;
 
         return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->Type;
+    }
+
+    public function setType(string $Type): self
+    {
+        $this->Type = $Type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PromotionAffecte[]
+     */
+    public function getPromotion(): Collection
+    {
+        return $this->promotion;
+    }
+
+    public function addPromotion(PromotionAffecte $promotion): self
+    {
+        if (!$this->promotion->contains($promotion)) {
+            $this->promotion[] = $promotion;
+            $promotion->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePromotion(PromotionAffecte $promotion): self
+    {
+        if ($this->promotion->removeElement($promotion)) {
+            // set the owning side to null (unless already changed)
+            if ($promotion->getIdUser() === $this) {
+                $promotion->setIdUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 }

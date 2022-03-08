@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -29,6 +31,8 @@ class Image
      * @ORM\Column(type="string", nullable=true)
      */
     private $alt;
+
+
     /**
      * @return mixed
      */
@@ -73,4 +77,6 @@ class Image
     {
         $this->alt = $alt;
     }
+
+
 }

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qr code{% endblock %}
+
+{% block content %}
+
+   <section id="container">
+      <section id="main-content">
+         <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i>Qr code du restaurent :</h3>
+
+            <section id="main-content">
+               <section class="wrapper">
+
+
+                  <div class="row mt">
+                     <div class="col-lg-12">
+
+                        <img src="{{ qr_code }}" alt="" style="width: 300px; height: 300px;" />
+
+                     </div>
+                  </div>
+               </section>
+            </section>
+         </section>
+      </section>
+   </section>
+
+{% endblock %}

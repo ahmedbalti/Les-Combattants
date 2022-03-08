@@ -42,6 +42,52 @@ class TableRepository extends ServiceEntityRepository
             ->addOrderBy('t.id', 'ASC');
         return $qb->getQuery()->getResult();
     }
+
+    public function calculTablesDispo($id)
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb->select( 'count(t.id)' )
+            ->where('t.club = :id')
+            ->andWhere('t.disponibilite = 1')
+            ->setParameter('id', $id)
+            ->leftJoin(
+                'App\Entity\Club',
+                'c',
+                'WITH',
+                'c.id = t.club'
+            );
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function CalculTablesAll($id)
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb->select( 'count(t.id)' )
+            ->where('t.club = :id')
+            ->setParameter('id', $id)
+            ->leftJoin(
+                'App\Entity\Club',
+                'c',
+                'WITH',
+                'c.id = t.club'
+            );
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function setDisponibilite($id,$value)
+    {
+        return $this->createQueryBuilder('t')
+            ->update()
+            ->set('t.disponibilite', ':value')
+            ->where('t.id = :id')
+            ->setParameter('value', $value)
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+
     // /**
     //  * @return Table[] Returns an array of Table objects
     //  */
