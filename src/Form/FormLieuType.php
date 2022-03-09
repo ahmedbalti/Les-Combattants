@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Lieu;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,8 @@ class FormLieuType extends AbstractType
             ->add('ville',TextType::class)
             ->add('adresse',TextType::class)
             ->add('capacite',   NumberType::class)
+            ->add('longitude',   PercentType::class)
+            ->add('latitude',   PercentType::class)
         ;
     }
 

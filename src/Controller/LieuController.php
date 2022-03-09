@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Lieu;
 use App\Form\FormLieuType;
+use Doctrine\DBAL\Types\FloatType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+
 
 
 class LieuController extends AbstractController
@@ -50,6 +53,8 @@ class LieuController extends AbstractController
             ->add('ville',TextType::class)
             ->add('adresse',TextType::class)
             ->add('capacite',   NumberType::class)
+            ->add('longitude',   PercentType::class)
+            ->add('latitude',   PercentType::class)
             ->add('save', SubmitType::class, array(
                     'label' => 'Créer')
             )->getForm();
@@ -58,7 +63,7 @@ class LieuController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $article = $form->getData();
+            $Lieu = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($Lieu);

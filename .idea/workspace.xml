@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee5da4be-67f1-4acf-b297-83159ebce0af" name="Default Changelist" comment="second commit">
+    <list default="true" id="ee5da4be-67f1-4acf-b297-83159ebce0af" name="Default Changelist" comment="third commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +190,10 @@
       <workItem from="1645563118275" duration="2273000" />
       <workItem from="1645606220907" duration="914000" />
       <workItem from="1645657507024" duration="540000" />
-      <workItem from="1645687455187" duration="1662000" />
+      <workItem from="1645687455187" duration="1796000" />
+      <workItem from="1645997520233" duration="550000" />
+      <workItem from="1646142421902" duration="1206000" />
+      <workItem from="1646173755595" duration="158000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1645478314556</created>
@@ -220,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645657718218</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="third commit">
+      <created>1645697685400</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645697685400</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +237,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="second commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="second commit" />
+    <MESSAGE value="third commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="third commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1645564702036">

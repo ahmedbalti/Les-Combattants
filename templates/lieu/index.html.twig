@@ -32,12 +32,12 @@
                                 <tr>
                                     <th><i class="fa fa-bullhorn"></i> ID</th>
                                     <th class="hidden-phone"><i class="fa fa-question-circle"></i> Nom</th>
-                                    <th><i class="fa fa-bookmark"></i> Date</th>
-                                    <th><i class=" fa fa-edit"></i> type</th>
-                                    <th><i class=" fa fa-edit"></i> Description</th>
+                                    <th><i class="fa fa-bookmark"></i> Ville</th>
+                                    <th><i class=" fa fa-edit"></i> Capacité</th>
+                                    <th><i class=" fa fa-edit"></i> Adresse</th>
 
-                                    <th><i class=" fa fa-edit"></i> Etat</th>
-                                    <th><i class=" fa fa-edit"></i> Actions</th>
+
+
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -50,10 +50,10 @@
                                     <td>{{ Lieu.nom}}</td>
                                     <td>{{ Lieu.ville }}</td>
                                     <td>{{ Lieu.capacite }} </td>
+                                    <td>{{ Lieu.adresse }} </td>
 
 
-                                    <td>14400.00$ </td>
-                                    <td><span class="label label-info label-mini">Due</span></td>
+
                                     <td>
                                         <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
                                         <a href={{ path('updateLieu',{'id':Lieu.id}) }}> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
@@ -66,22 +66,7 @@
 
 
 
-                                <tr>
-                                    <td>
-                                        <a href="basic_table.html#">Total Ltd</a>
-                                    </td>
-                                    <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                    <td>12120.00$ </td>
-                                    <td>14400.00$ </td>
-                                    <td>14400.00$ </td>
-                                    <td>14400.00$ </td>
-                                    <td><span class="label label-warning label-mini">Due</span></td>
-                                    <td>
-                                        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-danger btn-xs" >Delete</a>><i class="fa fa-trash-o "></i></button>
-                                    </td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
