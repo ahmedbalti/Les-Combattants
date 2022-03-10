@@ -39,4 +39,7 @@ class PromotionUIController extends AbstractController
         ]);
     }
 
+    public function affectPromotionUI(){
+
+    }
 }

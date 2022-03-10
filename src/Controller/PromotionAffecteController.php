@@ -27,7 +27,7 @@ class PromotionAffecteController extends AbstractController
     /**
      * @Route ("/affectePromotion", name="affecterPromotion")
      */
-    public function affectPromotion(Request $request)
+    public function affectPromotion(Request $request, \Swift_Mailer $mailer)
     {
         $affectation = new PromotionAffecte();
         $form = $this->createForm(PromotionAffecteType::class);
@@ -48,6 +48,13 @@ class PromotionAffecteController extends AbstractController
             $em->persist($affectation);
             $em->flush();
 
+            $message = (new \Swift_Message('Promotion Affecté'))
+                ->setFrom('culturaapplication@gmail.com')
+                ->setTo('ramez.wechteti1@gmail.com')
+                ->setBody("Votre promotion a été bien affecté ")
+            ;
+
+            $mailer->send($message);
             return $this->redirectToRoute('showAffected');
         }
     return $this->render('promotion_affecte/affectePromotion.html.twig', [

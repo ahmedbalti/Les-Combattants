@@ -17,13 +17,27 @@
                                     <ul>
                                         <form method="post" action="{{ path('searchPromotion') }}">
                                             <label>Search</label>
-                                            <input type="text" name="search">
+                                            <input type="text" name="search" placeholder="Chercher par title">
                                             <input type="submit" value="Search" class="btn btn-primary btn-sm" >
                                         </form>
                                     </ul>
+                                    {% set flashbag_notices = app.session.flashbag.get('notice') %}
+                                    {% if flashbag_notices is not empty %}
+                                        <ul class="msg">
+                                            {% for notice in flashbag_notices %}
+                                                <h3 align="center"><li>{{ notice }}</li></h3>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                     <ul class="nav pull-right top-menu" class="btn btn-primary btn-sm">
                                         <li>
                                             <a class="logout"  href="{{ path("addPromotion") }}">Ajouter Promotion</a>
+                                        </li>
+                                        <li>
+                                            <a class="logout"  href="{{ path("triIDC") }}">Tri Croissant</a>
+                                        </li>
+                                        <li>
+                                            <a class="logout"  href="{{ path("triIDD") }}">Tri decroissant</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -42,22 +56,28 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for promotion in promotions %}
-                                <tr>
-                                    <td>
-                                        <a href="basic_table.html#">{{ promotion.id }}</a>
-                                    </td>
-                                    <td class="hidden-phone">{{ promotion.type }}</td>
-                                    <td>{{ promotion.description }} </td>
-                                    <td>{{ promotion.scoreMin }} </td>
-                                    <td>{{ promotion.title }}</td>
-                                    <td>
-                                        <a><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
-                                        <a href="{{ path('updateP', {'id':promotion.id}) }}"> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
-                                        <a href="{{ path('deleteP',{'id':promotion.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
+                                {% if found == true %}
+                                    {% for promotion in promotions %}
+                                        <tr>
+                                            <td>
+                                                <a href="basic_table.html#">{{ promotion.id }}</a>
+                                            </td>
+                                            <td class="hidden-phone">{{ promotion.type }}</td>
+                                            <td>{{ promotion.description }} </td>
+                                            <td>{{ promotion.scoreMin }} </td>
+                                            <td>{{ promotion.title }}</td>
+                                            <td>
+                                                <a><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
+                                                <a href="{{ path('updateP', {'id':promotion.id}) }}"> <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                                <a href="{{ path('deleteP',{'id':promotion.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                       <tr>
+
+                                       </tr>
+                                {% endif %}
 
                                 </tbody>
                             </table>
@@ -72,25 +92,11 @@
         <!-- /MAIN CONTENT -->
         <!--main content end-->
         <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                <p>
-                    <strong></strong>
-                </p>
-                <div class="credits">
-                    <!--
-                      You are NOT allowed to delete the credit link to TemplateMag with free version.
-                      You can delete the credit link only if you bought the pro version.
-                      Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-                      Licensing information: https://templatemag.com/license/
-                    -->
-                    <a href="https://templatemag.com/"> </a>
-                </div>
-                <a href="basic_table.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Load Flashy default JavaScript -->
+        <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+        <!-- Include Flashy default partial -->
+        {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
         <!--footer end-->
     </section>
 

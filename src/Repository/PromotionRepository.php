@@ -22,7 +22,7 @@ class PromotionRepository extends ServiceEntityRepository
     // /**
     //  * @return Promotion[] Returns an array of Promotion objects
     //  */
-    public function findByType($type)
+    public function triByType($type)
     {
         return $this->createQueryBuilder('p')
             ->where('p.type LIKE :type')
@@ -33,6 +33,18 @@ class PromotionRepository extends ServiceEntityRepository
     }
 
 
+    public function triByIdCroissant(){
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('select p from App\Entity\Promotion p ORDER BY p.id');
+        return $query->getResult();
+    }
+
+    public function triByIdDecroissant(){
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('select p from App\Entity\Promotion p ORDER BY p.id desc');
+        return $query->getResult();
+    }
+
     /*
     public function findOneByTpe($value): ?Promotion
     {
@@ -42,5 +54,11 @@ class PromotionRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult()
         ;
+    }*/
+
+    /*public function statistics($type)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('select count(*) from App\Entity\Promotion p where p.type=')
     }*/
 }

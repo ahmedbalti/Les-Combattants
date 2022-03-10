@@ -18,8 +18,8 @@ class PromotionAffecteType extends AbstractType
     {
         $builder
             ->add('delai', DateType::class)
-            ->add('idUser', EntityType::class, ['class' => Utilisateur::class, 'choice_label' => 'id'])
-            ->add('idPromo', EntityType::class, ['class' => Promotion::class, 'choice_label' => 'id'])
+            ->add('idUser', EntityType::class, ['class' => Utilisateur::class, 'choice_label' => 'nom'])
+            ->add('idPromo', EntityType::class, ['class' => Promotion::class, 'choice_label' => 'title'])
             ->add('delai', DateType::class)
         ;
     }

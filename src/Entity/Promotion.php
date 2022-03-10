@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PromotionRepository::class)
@@ -17,24 +18,28 @@ class Promotion
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      * @Assert\Choice({"Cadeau", "Remise"})
+     * @Groups("post:read")
      */
     private $Type;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Veuillez ajouter description")
+     * @Groups("post:read")
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Veuillez ajouter score")
+     * @Groups("post:read")
      */
     private $scoreMin;
 
@@ -45,6 +50,7 @@ class Promotion
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups("post:read")
      */
     private $title;
 
