@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Rating;
 use App\Form\restaurentType;
 use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
@@ -38,6 +39,20 @@ class RestaurentController extends AbstractController
     {
         $restaurents = $this->getDoctrine()->getRepository(Club::class)->findWithImages('Restaurent');
         //pagination https://github.com/KnpLabs/KnpPaginatorBundle
+
+        $ratings = array();
+        $rating_count = array();
+
+        foreach ($restaurents as $restaurent) {
+            $total_rating = $this->getDoctrine()->getRepository(Rating::class)->calculTotalRating($restaurent["id"]);
+            $nbr_rating = $this->getDoctrine()->getRepository(Rating::class)->CalculNbrRating($restaurent["id"]);
+            $rating_count[] = $nbr_rating;
+            if($nbr_rating != 0){
+                $rating = $total_rating/$nbr_rating;
+                $ratings[] = round($rating);
+            } else $ratings[] = 0;
+        }
+
         $result = $paginator->paginate(
             $restaurents, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
@@ -45,6 +60,8 @@ class RestaurentController extends AbstractController
         );
         return $this->render('restaurent/index.html.twig', array(
             'restaurents' => $result,
+            'ratings' => $ratings,
+            'rating_count' => $rating_count
         ));
     }
 

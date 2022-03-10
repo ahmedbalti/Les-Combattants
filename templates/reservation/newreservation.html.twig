@@ -10,7 +10,9 @@
         <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                 <div class="text">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="">Home</a></span>  <span><a href="{{ path('restaurentList_index') }}">Hotel</a></span>  <span><a href="{{ path('barList_index') }}">Maison d'hote</a> </span></p>
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="{{ path('restaurentList_index') }}">Restaurent</a></span>
+                        <span><a href="{{ path('barList_index') }}">  Bar  </a></span>
+                        <span><a href="{{ path('reservations') }}"> Mes Réservations </a> </span></p>
                     <h1 class="mb-4 bread"></h1>
                 </div>
             </div>
@@ -89,6 +91,7 @@
 
         </section>
     </section>
+</section>
     {{ form_end(form) }}
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -116,4 +119,3 @@
         });
     </script>
     {% endblock %}
-

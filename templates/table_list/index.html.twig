@@ -10,8 +10,10 @@
             <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                     <div class="text">
-                        <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home</a></span> <span><a href="{{ path('hotelList_index') }}">Hotel</a></span>  <span><a href="{{ path('homeList_index') }}">Maison d'hote</a> </span> <span><a href="{{ path('roomlist_index') }}">Rooms</a></span> </p>
-                        <h1 class="mb-4 bread">Our Rooms</h1>
+                        <p class="breadcrumbs mb-2"><span class="mr-2"><a href="{{ path('restaurentList_index') }}">Restaurent</a></span>
+                            <span><a href="{{ path('barList_index') }}">  Bar  </a></span>
+                            <span><a href="{{ path('reservations') }}"> Mes Réservations </a> </span></p>
+                        <h1 class="mb-4 bread"> table </h1>
                     </div>
                 </div>
             </div>
@@ -35,7 +37,7 @@
                                 </div>
                                 <h3 class="heading"><a href="#">{{ table.position }}</a></h3>
                                 <p>{{ table.forme }}</p>
-                                <a href="{{ path('reservation_new',{'id':table.id}) }}" class="btn btn-secondary rounded">Réserver</a>
+                                <a href="{{ path('Reservation_new',{'id':table.id}) }}" class="btn btn-secondary rounded">Réserver</a>
                             </div>
                         </div>
                     </div>

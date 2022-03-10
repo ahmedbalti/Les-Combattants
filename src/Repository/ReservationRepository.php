@@ -24,7 +24,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function findWithImages()
     {
         $qb = $this->createQueryBuilder('r');
-        $qb->select( 'r.id,r.date,r.heure,r.nbrPersonnes,r.name,t.id,i.file' )
+        $qb->select( 'r.id,r.date,r.heure,r.nbrPersonnes,r.name,t.id as table,i.file' )
             ->leftJoin(
                 'App\Entity\Table',
                 't',

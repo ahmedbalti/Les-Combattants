@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Bar{% endblock %}
 
 {% block content %}
     <section id="container">
@@ -38,7 +38,8 @@
                                 <tr>
                                     <th style="width: 10%" class="hidden-phone"><i class="fa fa-pencil "></i> Nom</th>
                                     <th style="width: 10%"><i class="fa fa-location-arrow"></i> Lieu</th>
-                                    <th style="width: 45%"><i class=" fa fa-edit"></i> Description</th>
+                                    <th style="width: 35%"><i class=" fa fa-edit"></i> Description</th>
+                                    <th style="width: 10%"><i class=" fa fa-star"></i> Rating</th>
                                     <th style="width: 10%"><i class=" fa fa-file-image-o"></i> Image</th>
                                     <th style="width: 10%"></th>
                                 </tr>
@@ -50,7 +51,65 @@
                                         <td class="hidden-phone">{{ bar.nom }}</td>
                                         <td>{{ bar.lieu }} </td>
                                         <td>{{ bar.description }} </td>
+                                        <td>
+                                            {% if ratings[loop.index - 1] == 0 %}
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
 
+                                            {% elseif ratings[loop.index - 1] == 1 %}
+
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+
+                                            {% elseif ratings[loop.index - 1] == 2 %}
+
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+
+                                            {% elseif ratings[loop.index - 1] == 3 %}
+
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+
+                                            {% elseif ratings[loop.index - 1] == 4 %}
+
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star-o"></span>
+
+                                            {% elseif ratings[loop.index - 1] == 5 %}
+
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+
+                                            {% else %}
+
+                                                <span class="fa fa-star-0"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+                                                <span class="fa fa-star-o"></span>
+
+                                            {% endif %}
+                                            ({{ rating_count[loop.index - 1] }})
+                                        </td>
 
                                         <td>
                                             <div class="fileupload-new thumbnail" >
@@ -61,6 +120,7 @@
                                             <a href="{{ path('table_r',{'id':bar.id}) }}"><button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button></a>
                                             <a href="{{ path('bar_edit',{'id':bar.id}) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
                                             <a href="{{ path('bar_delete',{'id':bar.id}) }}"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                            <a href="{{ path('qrcode_bar',{'id':bar.id}) }}"><button class="btn btn-default btn-xs"><i class="fa fa-qrcode "></i></button></a>
                                         </td>
                                     </tr>
 
@@ -116,14 +176,14 @@
                 var minlength = 0;
                 var that = this;
                 var value = $(this).val();
-                //barhtml win bch na3mlo affichage lel retaurents
+                //restaurenthtml win bch na3mlo affichage lel retaurents
                 var barSelector = $("#barsHtml").html('');
                 if (value.length >= minlength ) {
                     if (searchRequest != null)
                         searchRequest.abort();
                     searchRequest = $.ajax({
                         type: "GET",
-                        url: "{{ path('bar_ajax_search') }}",
+                        url: "{{ path('resto_ajax_search') }}",
                         data: {
                             'q' : value
                         },
@@ -139,7 +199,7 @@
                                 var link_delete = "{{ path("bar_delete",{'id': "ID"}) }}"
                                 link_delete = link_delete.replace("ID", arr['id']);
                                 //append ma3neha 7ot fl blasa athika el html
-                                barSelector.append('<tr>'+
+                                restaurentSelector.append('<tr>'+
                                     '<td class="hidden-phone">'+arr['nom']+'</td>'+
                                     '<td>'+arr['lieu']+'</td>'+
                                     '<td>'+arr['description']+'</td>'+

@@ -12,7 +12,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
-class reservationType extends AbstractType
+class ReservationType extends AbstractType
 {
     //formulaire de la fonction ajouter
     /**
@@ -22,8 +22,8 @@ class reservationType extends AbstractType
     {
         $builder->add('nbrPersonnes')->add('heure',TimeType::class, [
             'widget' => 'choice',
-            'hours' => range(date('H'), 12),
-            'minutes' => range(date('i')+1, 60)
+            'hours' => range(date('H'), 23),
+            'minutes' => range(date('i')+1, 59)
         ])->add('date',DateType::class, array(
             'widget' => 'choice',
             'years' => range(date('Y'), date('Y')),
@@ -35,6 +35,7 @@ class reservationType extends AbstractType
             ->add('reset', ResetType::class)
             ->add('ok',SubmitType::class);
     }
+
 
 
 }

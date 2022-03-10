@@ -29,7 +29,7 @@ class Reservation
     private $heure;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
     private $nbrPersonnes;
 
@@ -40,8 +40,8 @@ class Reservation
 
     /**
      * @var Table
-     * @ORM\ManyToOne(targetEntity="Table", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="tabl", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="Table", cascade={"persist"})
+     * @ORM\JoinColumn(name="tabl", referencedColumnName="id")
      **/
     private $tabl;
 
@@ -50,52 +50,70 @@ class Reservation
         return $this->id;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getDate()
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date): void
     {
         $this->date = $date;
-
-        return $this;
     }
 
-    public function getHeure(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getHeure()
     {
         return $this->heure;
     }
 
-    public function setHeure(\DateTimeInterface $heure): self
+    /**
+     * @param mixed $heure
+     */
+    public function setHeure($heure): void
     {
         $this->heure = $heure;
-
-        return $this;
     }
 
-    public function getNbrPersonnes(): ?int
+    /**
+     * @return mixed
+     */
+    public function getNbrPersonnes()
     {
         return $this->nbrPersonnes;
     }
 
-    public function setNbrPersonnes(int $nbrPersonnes): self
+    /**
+     * @param mixed $nbrPersonnes
+     */
+    public function setNbrPersonnes($nbrPersonnes): void
     {
         $this->nbrPersonnes = $nbrPersonnes;
-
-        return $this;
     }
 
-    public function getName(): ?string
+
+
+    /**
+     * @return mixed
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -113,6 +131,7 @@ class Reservation
     {
         $this->tabl = $tabl;
     }
+
 
 
 
