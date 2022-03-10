@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Cultura{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700&display=swap" rel="stylesheet">
+    {% endblock %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('front/css/open-iconic-bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/animate.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('front/css/aos.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('front/css/ionicons.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('front/css/bootstrap-datepicker.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/jquery.timepicker.css') }}">
+
+
+        <link rel="stylesheet" href="{{ asset('front/css/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/icomoon.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    {% endblock %}
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <img src="{{ asset('Front/images/logo.png') }}" width="75" alt="LOGO" style="vertical-align:bottom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html.twig" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="Hebergement.html.twig" class="nav-link">Hebergements</a></li>
+                    <li class="nav-item"><a href="restaurant.html" class="nav-link">Restaurant</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Evenements</a></li>
+                    <li class="nav-item"><a href=" {{ path('blog') }}" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="recompense.html" class="nav-link">Récompense</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% block body %}
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+        </div><div> </div> <div>
+      {% block content%}
+
+      {% endblock %}
+
+            {% endblock %}
+
+
+{% block footer %}
+    <footer class="ftco-footer ftco-section img" style="background-image: url({{ asset('front/images/bg_4.jpg') }});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Harbor Lights</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Liens utiles</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Blog</a></li>
+                            <li><a href="#" class="py-2 d-block">Hebergements</a></li>
+                            <li><a href="#" class="py-2 d-block">Restaurant</a></li>
+                            <li><a href="#" class="py-2 d-block">Récompense</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Privacy</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Career</a></li>
+                            <li><a href="#" class="py-2 d-block">About Us</a></li>
+                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                            <li><a href="#" class="py-2 d-block">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Questions!</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">22 505 123</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('front/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ asset('front/js/popper.min.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('front/js/aos.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('front/js/scrollax.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ asset('front/js/google-map.js') }}"></script>
+    <script src="{{ asset('front/js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>
